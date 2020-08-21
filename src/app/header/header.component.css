@@ -1,0 +1,12 @@
+.topheader {
+    text-align: center;
+    background-color: #000066;
+    padding: 15px;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 50px;
+    background: rgba(0, 0, 102, 0.9);
+    border: none;
+    box-shadow: 0 0 10px #000066;
+    text-shadow: 0 0 4px #c8dbea;
+}

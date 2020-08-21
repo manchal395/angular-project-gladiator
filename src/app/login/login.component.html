@@ -1,0 +1,34 @@
+Heya
+<div class="card">
+    <h2 style="text-align: center;">Login to Fly with Rafale!</h2>
+    <span *ngIf = "this.authService.isLoggedIn()"><h1>You are logged in as {{this.user()}}</h1></span>
+    <form #userForm="ngForm" *ngIf="!this.authService.isLoggedIn()">
+
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" required minlength="4" name = "uname" placeholder="Enter Username" [(ngModel)] = login.uname #name="ngModel" [(ngModel)]="this.login.uname"/><br />
+            <div *ngIf = "name.invalid && (name.dirty || name.touched)" class = "alert alert-danger">
+                <div *ngIf = "name.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Name is required</div>
+                <div *ngIf = "name.errors.minlength" style="color:red; font-size: 15px; margin-bottom: 10px;">*must be at least 4 characters long</div>
+            </div>
+        
+            <label for="psw"><b>Password</b></label>
+            <input id="psw" type="password" required minlength="6" placeholder="Enter Password" name="psw" [(ngModel)] = login.psw #psw="ngModel" [(ngModel)]="this.login.psw" /><br />
+            <div *ngIf = "psw.invalid && (psw.dirty || psw.touched)" class = "alert alert-danger">
+                <div *ngIf = "psw.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*password is required</div>
+                <div *ngIf = "psw.errors.minlength" style="color:red; font-size: 15px; margin-bottom: 10px;">*must be at least 6 digit long</div>
+            </div>
+        
+            <button type="submit" (click)="this.log()">Login</button>
+            <label for="check" class="checkboxLabel">
+            <input id="check" type="checkbox" checked="checked" name="remember" ngModel>Remember me
+            </label>
+        </div>
+        
+        <div class="container" style="background: rgba(255, 255, 255, 0.6); padding: 20px; overflow: hidden;">
+            <button type="button" class="cancelbtn" routerLink="/">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+        <label class="signup">New User? <a routerLink="/register">Sign up now</a></label>
+    </form>
+</div>

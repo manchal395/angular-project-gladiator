@@ -1,0 +1,72 @@
+.search-details {
+    background: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    font-size: large;
+}
+.flights {
+    background: rgba(255, 255, 255, 0.8);
+    width: 92.5%;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    border: 1px solid grey;
+}
+.flightcard {
+    display: inline-block;
+    /* border: 1px solid grey; */
+    vertical-align: bottom;
+    height: 130px;
+    padding: 10px;
+    /* border-right: 1px solid grey; */
+}
+.flightdata {
+    display: block;
+}
+
+.flightdata #farrival {
+    display: inline-block;
+    float: right;
+}
+
+.flightdata #tcity {
+    display: inline-block;
+    float: right;
+}
+
+#plane {
+    display: inline-block;
+    /* margin-left: auto;
+    margin-right: auto; */
+    height: 50px;
+    margin-top: 7px;
+}
+#loc {
+    display: inline-block;
+    height: 30px;
+    margin-top: 10px;
+}
+hr {
+    display: inline-block;
+    border: 1px dashed black;
+    width: 38%;
+    vertical-align: 15px;
+}
+.booknow {
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 60%;
+    border: 1px solid;
+    font-size: medium;
+    margin-left: 22px;
+}
+.booknow button:focus,
+    button:hover {
+    font-size: larger;
+}

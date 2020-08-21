@@ -1,0 +1,117 @@
+body {
+    background-color: #000066;
+    /* angular leaves default padding n margin, to cover full page */
+    margin: 0;
+    padding: 0;
+}
+.mainDiv {
+    padding: 10px;
+    background-color: #c8dbea;
+    width: 100%;
+    margin: auto;
+    /* background image settings */
+    background: url(assets/images/clouds.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.bodyDiv {
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+/* You can add global styles to this file, and also import other style files */
+.maincontent {
+    padding: 40px;
+    height: max-content;
+    background-color: #c8dbea;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: rgba(200, 219, 234, 0.6);
+    border: none;
+    box-shadow: 0 0 10px #c8dbea;
+}
+.planeicon {
+    height: 75px;
+    /* float: right; */
+    vertical-align: middle;
+}
+.card {
+    overflow: visible;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.card form{
+    padding: 20px;
+    width: 330px;
+    margin: auto;
+}
+.container {
+    overflow: hidden;
+}
+.container label {
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.container input {
+    display: inline-block;
+    width: 92.5%;
+    padding-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.container input:focus,
+    input:hover {
+        border: 2px solid darkblue;
+    }
+.container input:focus {
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 6px red;
+}
+.container button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: darkblue;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    border: 1px solid;
+}
+.container button:focus,
+    button:hover {
+        font-size: large;
+        cursor: pointer;
+    }
+.container .checkboxLabel{
+    width: 5%;
+    white-space: nowrap; 
+}
+.container .cancelbtn {
+    float: left;
+    background-color: red;
+    width: 30%;
+    margin: auto;
+    border: 1px solid;
+    padding: 10px;
+    margin-left: -10px;
+}
+.container .psw {
+    float: right;
+    padding: 10px;
+    margin-right: -10px;
+}
+.signup {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}

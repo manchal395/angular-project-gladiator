@@ -1,0 +1,153 @@
+/* .searhArea {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
+  #flight-form {
+    width: 550px;
+  }
+  #header {
+    background: rgba(255, 255, 255, 0.6);
+    width: 550px;
+    padding: 5px;
+    margin: auto;
+  }
+  .flight input, select {
+      color: #6B6A6A;
+  }
+  .info-box {
+    padding: 10px 0;
+    margin-top: 10px;
+    flex: 1;
+  }
+  .container .left{
+    margin-right: 10px;
+  }
+  .container .right {
+    float: right;
+  }
+  
+  /* .info-box:last-child {
+    border-right: none;
+  }
+  .info-box label {
+    display: block;
+    color: black;
+    font-size: .9em;
+  }
+  .info-box input[type=text], input[type=submit], select{
+    border: none;
+    outline: none;
+    font-size: medium;
+    background: #E2E0E0;
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px;
+    height: 40px;
+    border-radius: 3px;
+  } */
+  .info-box ::placeholder{
+      font-size: medium;
+  }
+  .info-box select {
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+  }
+  /* .info-box option {
+      display: block;
+  }
+  .info-box .options {
+    
+  } */
+  .info-box input {
+    width: 91.2%;
+  }
+  #flight-info .right{
+    float: right;
+  }
+  .info-box select:focus {
+    outline: none;
+  }
+  
+  #flight-type {
+    display: flex;
+    border-bottom: 1px dotted silver;
+  }
+  #flight-type .info-box {
+    /* flex: 0 1 25%; */
+    display:flex;
+    /* align-items: center; */
+  }
+  #flight-type input {
+    height: 0;
+    width: 0;
+    cursor: pointer;
+  }
+  #flight-type .radiobtn {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #eee;
+    position: relative;
+    margin-top: -3px;
+  }
+  #flight-type .radiobtn:focus {
+    outline: none;
+    border-color: none;
+    box-shadow: none;
+  }
+  #flight-type label {
+    margin-left: 15px;
+  }
+  #flight-depart {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted silver;
+  }
+  #flight-depart .info-box {
+    position: relative;
+  }
+  #depart-res, #arrive-res {
+    position: absolute;
+    background: #FFFFFF;
+  }
+  #depart-res p, #arrive-res p {
+    padding: 7px 2px;
+    border-bottom: 1px dotted silver;
+  }
+  #depart-res p:hover, #arrive-res p:hover {
+    background: #EDEDED;
+    cursor: pointer;
+  }
+  
+  #flight-dates {
+    display: flex;
+    border-bottom: 1px dotted silver;
+  }
+  
+  #flight-info {
+    display: flex;
+    border-bottom: 1px dotted silver;
+    margin-bottom: 20px;
+  }
+  
+  #flight-search .info-box {
+    display: flex;
+    justify-content: center;
+  }
+  #flight-search input[type=submit] {
+    background: #d43636;
+    color: white;
+    padding: 0;
+    height: 50px;
+    font-size: 1.2em;
+  }
+  .container button {
+    font-size: large;
+  }
+  .container button:hover {
+    font-size: larger;
+  }

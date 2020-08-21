@@ -1,0 +1,41 @@
+<div *ngFor="let s of searchDetails" style="margin-bottom: 30px;">
+    <div class="search-details">
+        <b>{{ s.from }}</b> to <b>{{ s.to }}</b>
+        &nbsp;<a routerLink="/">Modify Search</a>
+        <br>
+        {{ s.date.toDateString() }}
+    </div>
+    <div class="flights" *ngFor="let f of flights">
+        <div class="flightcard" style="width: 50%;">
+            <div>
+                <div class="flightdata">
+                    <label id="fid">{{ f.id }}</label>
+                </div>
+                <div class="flightdata" style="font-size: xx-large; font-weight: bolder;">
+                    <label id="fdepart">{{ f.depart }}</label>
+                    <label id="farrival">{{ f.arrival }}</label>
+                </div>
+                    <img id="loc" src="assets/images/location.png" alt="" style="float: left;">
+                    &nbsp;&nbsp;<hr>
+                    <img id="plane" src="assets/images/plane.png" alt="">
+                    <hr>
+                    <img id="loc" src="assets/images/location.png" alt="" style="float: right;">
+                <div class="flightdata" style="font-size: medium;">
+                    <label id="fcity">{{ s.from.substring(0,3) }}</label>
+                    <label id="tcity">{{ s.to.substring(0,3) }}</label>
+                </div>
+            </div>
+        </div>
+        <div class="flightcard" style="width: 20%; margin-left: 10px; border-left: 1px solid grey; border-right: 1px solid grey">
+            <div style="text-align: center; margin-top: 20%;">
+                <label>INR</label><br>
+                <label style="font-size: x-large; font-weight: 500;">{{ f.price }}</label>
+            </div>
+        </div>
+        <div class="flightcard" style="width: 20%;">
+            <div style="text-align: center; margin-top: 15%;">
+                <button type="submit" class="booknow">Book<br>Now</button>
+            </div>
+        </div>
+    </div>
+</div>
