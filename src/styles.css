@@ -11,12 +11,13 @@ body {
     margin: auto;
     /* background image settings */
     background: url(assets/images/clouds.jpg);
+    filter: brightness(115%);
     background-size: cover;
     background-repeat: no-repeat;
     
 }
 .bodyDiv {
-    width: 90%;
+    width: 95%;
     margin: auto;
     padding: 10px;
     font-family: 'Raleway', sans-serif;
@@ -26,11 +27,12 @@ body {
     padding: 40px;
     height: max-content;
     background-color: #c8dbea;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background: rgba(200, 219, 234, 0.6);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: rgba(200, 219, 234, 0.3);
     border: none;
-    box-shadow: 0 0 10px #c8dbea;
+    /* box-shadow: 0 0 10px #c8dbea; */
+    box-shadow: 5px 10px 18px #000066;
 }
 .planeicon {
     height: 75px;

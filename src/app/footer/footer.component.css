@@ -9,5 +9,6 @@
     background: rgba(0, 0, 102, 0.7);
     /* border-bottom-right-radius: 40px; */
     border: none;
-    box-shadow: 0 0 10px #000066;
+    /* box-shadow: 0 0 10px #000066; */
+    box-shadow: 5px 10px 18px #000066;
 }
