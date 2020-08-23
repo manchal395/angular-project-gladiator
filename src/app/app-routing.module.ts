@@ -9,7 +9,7 @@ const routes: Routes = [
   // component: Component's class name
   { path: '', component: SearchComponent}, 
   { path: 'search', component: SearchComponent}, 
-  { path: 'loginpage', component: LoginComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'search-result', component: SearchResultComponent }
 ];

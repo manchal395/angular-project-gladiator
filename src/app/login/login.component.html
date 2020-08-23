@@ -1,8 +1,6 @@
-Heya
 <div class="card">
     <h2 style="text-align: center;">Login to Fly with Rafale!</h2>
-    <span *ngIf = "this.authService.isLoggedIn()"><h1>You are logged in as {{this.user()}}</h1></span>
-    <form #userForm="ngForm" *ngIf="!this.authService.isLoggedIn()">
+    <form #userForm="ngForm">
 
         <div class="container">
             <label for="uname"><b>Username</b></label>
@@ -19,7 +17,7 @@ Heya
                 <div *ngIf = "psw.errors.minlength" style="color:red; font-size: 15px; margin-bottom: 10px;">*must be at least 6 digit long</div>
             </div>
         
-            <button type="submit" (click)="this.log()">Login</button>
+            <button type="submit">Login</button>
             <label for="check" class="checkboxLabel">
             <input id="check" type="checkbox" checked="checked" name="remember" ngModel>Remember me
             </label>
