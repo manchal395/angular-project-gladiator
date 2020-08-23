@@ -1,21 +1,36 @@
 #admin-form {
-    width: 550px;
-  }
+  width: 550px;
+}
+
+#header {
+  background: rgba(255, 255, 255, 0.6);
+  width: 25%;
+  height: 20%;
+  padding: 2px;
+  margin: auto;
+}
+.container button {
+  font-size: large;
+  width: 50%;
+  text-align: center;
   
-  #header {
-    background: rgba(255, 255, 255, 0.6);
-    width: 25%;
-    height: 20%;
-    padding: 2px;
-    margin: auto;
-  }
-  .container button {
-    font-size: large;
-    width: 50%;
-    text-align: center;
-  }
-  .container button:hover {
-    font-size: larger;
-  }
-  
-  
+}
+.container button:hover {
+  font-size: larger;
+}
+
+.container select{
+  display: inline-block;
+  padding-bottom: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 97%;
+  border: 2px solid;
+}
+.container select:hover {
+        border: 2px solid darkblue;
+}
+
+.container select:focus {
+  border: 2px solid red;
+}
