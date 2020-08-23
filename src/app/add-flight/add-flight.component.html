@@ -1,0 +1,51 @@
+<div class="card">
+    <div id="header">
+        <h3 style="text-align: center;">Add Flights</h3>
+    </div>
+    <form (ngSubmit)="addFlight()" id="admin-form">
+        <div class="container" id="flightbox">
+            <div class="info-box">
+                <label for="fid"><b>FlightID</b></label>
+                <input type="int" placeholder="Enter ID" name="id" [(ngModel)]=addflightdto.id>
+            </div>
+
+            <div id="city-type">
+                <div class="info-box left">
+                    <label for="frm"><b>From</b></label>
+                    <!-- <input type="text" placeholder="Enter City" name="fromCity" [(ngModel)]=addflightdto.fromCity/> -->
+                    <select class="city" ng-Model="addflightdto.fromCity">  
+                        <option value=""disabled selected hidden>Choose City</option>
+                        <option *ngFor="let ct of City">{{ct.name}} </option>  
+                    </select> 
+                    <div id="depart-res"></div>
+                </div>
+
+                <div class="info-box right" id="arrive-box">
+                    <label for="to"><b>To</b></label>
+                    <!-- <input type="text" placeholder="Enter City" name="toCity" [(ngModel)]=addflightdto.toCity/> -->
+                    <select class="city" ng-model="addflightdto.toCity">  
+                        <option value=""disabled selected hidden>Choose City</option>
+                        <option *ngFor="let ct of City">{{ct.name}} </option>  
+                    </select> 
+                    <div id="arrive-res"></div>
+                </div>
+            </div>
+
+            <div id="flight-time">
+                <div class="info-box left">
+                    <label for="dprt"><b>Depart</b></label>
+                    <input type="datetime-local" [min]="departDate" placeholder="Departure Time" name="departDate" [(ngModel)]=addflightdto.depart (change)="onDateSelect($event)"/>
+                </div>
+
+                <div class="info-box right" id="return-box">
+                    <label for="arrv"><b>Arrvial</b></label>
+                    <input type="datetime-local" [value]="resetDate" [min]="returnDate" placeholder="Arrvial Time" name="arrive" [(ngModel)]=addflightdto.arrive/>
+                </div>
+            </div>
+
+            <div class="container">
+                <button type="submit" id="edit-flight">Add Flight</button>
+            </div>
+        </div>
+    </form>
+</div>

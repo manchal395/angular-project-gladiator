@@ -4,9 +4,9 @@
     /* below line joins menubar and header */
     padding: unset;
     overflow: hidden;
-    background: rgba(200, 219, 234, 0.6);
+    background: rgba(200, 219, 234, 0.3);
     border: none;
-    box-shadow: 0 0 10px #c8dbea;
+    box-shadow: 5px 10px 18px #000066;
 }
 .topmenu li {
     /* below line hid the bullets of list */
