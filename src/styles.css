@@ -25,6 +25,7 @@ body {
 /* You can add global styles to this file, and also import other style files */
 .maincontent {
     padding: 40px;
+    min-height: 450px;
     height: max-content;
     background-color: #c8dbea;
     margin-top: 20px;

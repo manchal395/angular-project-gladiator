@@ -34,12 +34,12 @@
             <div id="flight-time">
                 <div class="info-box left">
                     <label for="dprt"><b>Depart</b></label>
-                    <input type="datetime-local" [min]="departDate" placeholder="Departure Time" name="departDate" [(ngModel)]=addflightdto.depart (change)="onDateSelect($event)"/>
+                    <input type="datetime-local" [min]="departDate" placeholder="Departure Time" name="depart" (change)="onDateSelect($event)" [(ngModel)]=addflightdto.depart/>
                 </div>
 
                 <div class="info-box right" id="return-box">
                     <label for="arrv"><b>Arrvial</b></label>
-                    <input type="datetime-local" [value]="resetDate" [min]="returnDate" placeholder="Arrvial Time" name="arrive" [(ngModel)]=addflightdto.arrive/>
+                    <input type="datetime-local"  [value]="resetDate" [min]="returnDate" placeholder="Arrvial Time" name="arrive" [(ngModel)]=addflightdto.arrive/>
                 </div>
             </div>
 
