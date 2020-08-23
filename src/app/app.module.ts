@@ -14,6 +14,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AddFlightComponent } from './add-flight/add-flight.component';
 import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
     RegisterComponent,
     SearchResultComponent,
     AddFlightComponent,
-    DeleteFlightComponent
+    DeleteFlightComponent,
+    AdminDashboardComponent,
+    UserDashboardComponent
   ],
   imports: [
     AppRoutingModule,

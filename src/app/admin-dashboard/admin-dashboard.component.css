@@ -1,0 +1,16 @@
+.admin-menu {
+    width: 95%;
+    padding: 10px;
+    text-align: center;
+}
+
+.admin-menu li {
+    display: inline-block;
+}
+.admin-menu a {
+    text-decoration: none;
+    background: rgba(0, 0, 102, 0.9);
+    padding: 10px;
+    color: white;
+    width: 80px;
+}
