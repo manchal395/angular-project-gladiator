@@ -1,0 +1,43 @@
+<div class="card">
+    <div id="header">
+        <h3 style="text-align: center;">Add Flights</h3>
+    </div>
+    <form (ngSubmit)="addFlight()" id="admin-form">
+        <div class="container" id="flightbox">
+            <div class="info-box">
+                <label for="fid"><b>FlightID</b></label>
+                <input type="int" placeholder="Enter ID" name="id" [(ngModel)]=addflightdto.id>
+            </div>
+
+            <div id="city-type">
+                <div class="info-box left">
+                    <label for="frm"><b>From</b></label>
+                    <input type="text" placeholder="Enter City" name="fromCity" [(ngModel)]=addflightdto.fromCity/>
+                    <div id="depart-res"></div>
+                </div>
+
+                <div class="info-box right" id="arrive-box">
+                    <label for="to"><b>To</b></label>
+                    <input type="text" placeholder="Enter City" name="toCity" [(ngModel)]=addflightdto.toCity/>
+                    <div id="arrive-res"></div>
+                </div>
+            </div>
+
+            <div id="flight-time">
+                <div class="info-box left">
+                    <label for="dprt"><b>Depart</b></label>
+                    <input type="datetime-local" placeholder="Departure Time" name="depart" [(ngModel)]=addflightdto.depart/>
+                </div>
+
+                <div class="info-box right" id="return-box">
+                    <label for="arrv"><b>Arrvial</b></label>
+                    <input type="datetime-local" placeholder="Arrvial Time" name="arrive" [(ngModel)]=addflightdto.arrive/>
+                </div>
+            </div>
+
+            <div class="container">
+                <button type="submit" id="edit-flight">Add Flight</button>
+            </div>
+        </div>
+    </form>
+</div>

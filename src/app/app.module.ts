@@ -11,6 +11,10 @@ import { SearchComponent } from './search/search.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AddFlightComponent } from './add-flight/add-flight.component';
+import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
+
 
 @NgModule({
   declarations: [
@@ -21,12 +25,15 @@ import { SearchResultComponent } from './search-result/search-result.component';
     SearchComponent,
     LoginComponent,
     RegisterComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    AddFlightComponent,
+    DeleteFlightComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

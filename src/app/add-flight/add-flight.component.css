@@ -1,0 +1,21 @@
+#admin-form {
+    width: 550px;
+  }
+  
+  #header {
+    background: rgba(255, 255, 255, 0.6);
+    width: 25%;
+    height: 20%;
+    padding: 2px;
+    margin: auto;
+  }
+  .container button {
+    font-size: large;
+    width: 50%;
+    text-align: center;
+  }
+  .container button:hover {
+    font-size: larger;
+  }
+  
+  
