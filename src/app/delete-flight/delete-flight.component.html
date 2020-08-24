@@ -1,0 +1,14 @@
+<div class="card">
+    <form (ngSubmit)="deleteFlight()" id="admin-form">
+        <div id="header">
+            <h3 style="text-align: center;">Delete Flights</h3>
+        </div>
+        <div class="container">
+            <label for="fid"><b>Flight Id</b></label>
+            <input type="number" placeholder="Enter ID" name="fid" [(ngModel)]=this.id/>
+            <!--deleting data from schedule-->
+            <!--every day  schedule to be deleted using a trigger. Two seperate tables one conytaining history of the schedules and one containning future schedules-->
+            <button type="submit" id="edit-flight">Delete Flight</button>
+        </div>
+    </form>
+</div>

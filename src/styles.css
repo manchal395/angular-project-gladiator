@@ -25,6 +25,7 @@ body {
 /* You can add global styles to this file, and also import other style files */
 .maincontent {
     padding: 40px;
+    min-height: 450px;
     height: max-content;
     background-color: #c8dbea;
     margin-top: 20px;
@@ -67,6 +68,7 @@ body {
     padding-bottom: 10px;
     padding: 10px;
     margin-bottom: 10px;
+    border: 2px solid;
 }
 .container input:focus,
     input:hover {
@@ -117,3 +119,18 @@ body {
     font-weight: bold;
     color: black;
 }
+.container select{
+    display: inline-block;
+    padding-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 97%;
+    border: 2px solid;
+  }
+  .container select:hover {
+          border: 2px solid darkblue;
+  }
+  
+  .container select:focus {
+    border: 2px solid red;
+  }
