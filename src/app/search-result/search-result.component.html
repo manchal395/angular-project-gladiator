@@ -1,19 +1,19 @@
 <div *ngFor="let s of searchDetails" style="margin-bottom: 30px;">
     <div class="search-details">
-        <b>{{ s.from }}</b> to <b>{{ s.to }}</b>
+        <b>{{ searchdto.source }}</b> to <b>{{ searchdto.destination }}</b>
         &nbsp;<a routerLink="/">Modify Search</a>
         <br>
-        {{ s.date.toDateString() }}
+        {{ searchdto.depart }}
     </div>
-    <div class="flights" *ngFor="let f of flights">
+    <div class="flights" *ngFor="let f of fetchedflights">
         <div class="flightcard" style="width: 50%;">
             <div>
                 <div class="flightdata">
-                    <label id="fid">{{ f.id }}</label>
+                    <label id="fid">{{ f.airlines }} F{{ f.id }}</label>
                 </div>
                 <div class="flightdata" style="font-size: xx-large; font-weight: bolder;">
-                    <label id="fdepart">{{ f.depart }}</label>
-                    <label id="farrival">{{ f.arrival }}</label>
+                    <label id="fdepart">{{ f.depart.substring(11,16) }}</label>
+                    <label id="farrival">{{ f.arrive.substring(11,16) }}</label>
                 </div>
                     <img id="loc" src="assets/images/location.png" alt="" style="float: left;">
                     &nbsp;&nbsp;<hr>
@@ -21,15 +21,16 @@
                     <hr>
                     <img id="loc" src="assets/images/location.png" alt="" style="float: right;">
                 <div class="flightdata" style="font-size: medium;">
-                    <label id="fcity">{{ s.from.substring(0,3) }}</label>
-                    <label id="tcity">{{ s.to.substring(0,3) }}</label>
+                    <label id="fcity">{{ f.source.substring(0,3) }}</label>
+                    <label id="tcity">{{ f.destination.substring(0,3) }}</label>
                 </div>
             </div>
         </div>
         <div class="flightcard" style="width: 20%; margin-left: 10px; border-left: 1px solid grey; border-right: 1px solid grey">
             <div style="text-align: center; margin-top: 20%;">
                 <label>INR</label><br>
-                <label style="font-size: x-large; font-weight: 500;">{{ f.price }}</label>
+                <label *ngIf=isEconomy style="font-size: x-large; font-weight: 500;">{{ f.economy }}</label>
+                <label *ngIf=isBusiness style="font-size: x-large; font-weight: 500;">{{ f.business }}</label>
             </div>
         </div>
         <div class="flightcard" style="width: 20%;">
