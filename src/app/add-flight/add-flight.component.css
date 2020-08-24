@@ -15,6 +15,9 @@
   text-align: center;
   
 }
+.container input, select {
+  border-color: #6B6A6A;
+}
 .container button:hover {
   font-size: larger;
 }
