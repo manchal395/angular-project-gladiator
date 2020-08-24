@@ -1,21 +1,23 @@
 <div class="card">
     <h2 style="text-align: center;">Register to Rafale Account</h2>
-    <form>
+    <form (ngSubmit)="register()">
         <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname">
-
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw">
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" placeholder="Enter Full Name" name="name" [(ngModel)]=user.fullName>
 
             <label for="email"><b>Email Address</b></label>
-            <input type="email" placeholder="Enter Email Address" name="email">
+            <input type="email" placeholder="Enter Email Address" name="email" [(ngModel)]=user.email>
 
-            <label for="city"><b>City</b></label>
-            <input type="text" placeholder="Enter City" name="city">
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" [(ngModel)]=user.password>
+
+
+            <label for="dOB"><b>Date Of Birth</b></label>
+            <input type="date" placeholder="Enter Date Of Birth" name="dOB" [(ngModel)]=user.dateOfBirth>
 
             <label for="mobile"><b>Mobile No.</b></label>
-            <input type="tel" placeholder="Enter Mobile Number" name="mobile">
+            <input type="tel" placeholder="Enter Mobile Number" name="mobile" [(ngModel)]=user.phoneNo>
 
             <button type="submit">Register</button>
         </div>
