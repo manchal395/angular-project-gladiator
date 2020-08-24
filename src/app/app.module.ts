@@ -17,6 +17,7 @@ import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
+import { BookingComponent } from './booking/booking.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { LogoutComponent } from './logout/logout.component';
     DeleteFlightComponent,
     AdminDashboardComponent,
     UserDashboardComponent,
-    LogoutComponent
+    LogoutComponent,
+    BookingComponent
   ],
   imports: [
     AppRoutingModule,
