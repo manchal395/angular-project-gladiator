@@ -26,7 +26,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

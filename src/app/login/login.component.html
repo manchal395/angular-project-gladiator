@@ -1,17 +1,17 @@
 <div class="card">
     <h2 style="text-align: center;">Login to Fly with Rafale!</h2>
-    <form #userForm="ngForm">
+    <form #userForm="ngForm" (ngSubmit)="loginUser()">
 
         <div class="container">
             <label for="uname"><b>Username</b></label>
-            <input type="text" required minlength="4" name = "uname" placeholder="Enter Username" [(ngModel)] = login.uname #name="ngModel" [(ngModel)]="this.login.uname"/><br />
+            <input type="text" required minlength="4" name = "email" placeholder="Enter Username" [(ngModel)] = login.email #name="ngModel" /><br />
             <div *ngIf = "name.invalid && (name.dirty || name.touched)" class = "alert alert-danger">
                 <div *ngIf = "name.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Name is required</div>
                 <div *ngIf = "name.errors.minlength" style="color:red; font-size: 15px; margin-bottom: 10px;">*must be at least 4 characters long</div>
             </div>
         
             <label for="psw"><b>Password</b></label>
-            <input id="psw" type="password" required minlength="6" placeholder="Enter Password" name="psw" [(ngModel)] = login.psw #psw="ngModel" [(ngModel)]="this.login.psw" /><br />
+            <input id="psw" type="password" required minlength="6" placeholder="Enter Password" name="password" [(ngModel)] = login.password #psw="ngModel" /><br />
             <div *ngIf = "psw.invalid && (psw.dirty || psw.touched)" class = "alert alert-danger">
                 <div *ngIf = "psw.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*password is required</div>
                 <div *ngIf = "psw.errors.minlength" style="color:red; font-size: 15px; margin-bottom: 10px;">*must be at least 6 digit long</div>
