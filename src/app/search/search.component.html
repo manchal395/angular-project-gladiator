@@ -18,17 +18,17 @@
             <div id="flight-depart">
                 <div class="info-box left">
                     <label for="">FROM</label>
-                    <select class="city">  
+                    <select class="city" name="source" [(ngModel)]=searchdto.source>  
                         <option value="" disabled selected hidden>Choose City</option>
-                        <option *ngFor="let ct of City">{{ct.name}} </option>  
+                        <option *ngFor="let ct of City" [(ngValue)]=ct.name>{{ct.name}} </option>  
                     </select>  
                     <div id="depart-res"></div>
                 </div>
                 <div class="info-box right" id="arrive-box">
                     <label for="">TO</label>
-                    <select class="city">  
+                    <select class="city" name="destination" [(ngModel)]=searchdto.destination>  
                         <option value="" disabled selected hidden>Choose City</option>
-                        <option *ngFor="let ct of City">{{ct.name}} </option>  
+                        <option *ngFor="let ct of City" [(ngValue)]=ct.name>{{ct.name}} </option>  
                     </select> 
                     <div id="arrive-res"></div>
                 </div>
@@ -37,13 +37,13 @@
             <div id="flight-dates">
                 <div class="info-box left">
                     <label for="">DEPART</label>
-                    <input type="date" id="leave-date" [min]="departDate" placeholder="Select Date" (change)="onDateSelect($event)" style="border-color: #6B6A6A;"/>
+                    <input type="date" id="leave-date" [min]="departDate" placeholder="Select Date" (change)="onDateSelect($event)" name="depart" [(ngModel)]=searchdto.depart style="border-color: #6B6A6A;"/>
                 </div>
                 <div class="info-box right" id="return-box">
                     <label for="">RETURN</label>
                     <!-- this date works different in different browsers -->
                     <!-- <input type="text" id="return-date" placeholder="Select Date" onfocus="(this.type='date')"/> -->
-                    <input type="date" id="return-date" [value]="resetDate" [min]="returnDate" placeholder="Select Date" [disabled]="oneway" style="border-color: #6B6A6A;"/>
+                    <input type="date" id="return-date" [value]="returnDate" [min]="returnDate" placeholder="Select Date" [disabled]="oneway" name="arrive" [(ngModel)]=searchdto.arrive style="border-color: #6B6A6A;"/>
                   </div>
             </div>
 
@@ -58,18 +58,18 @@
             <div id="flight-info">
                 <div class="info-box left">
                     <label for="adults">PASSENGERS</label>
-                    <select name="adults" id="adults">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                    <select name="adults" id="adults" name="noOfPassengers" [(ngModel)]=searchdto.noOfPassengers>
+                        <option *ngFor="let no of passengers; trackBy:indexTracker">{{ no }}</option>
+                        <!-- <option value="2" >2</option>
+                        <option value="3" >3</option>
+                        <option value="4" >4</option> -->
                     </select>
                 </div>
                 <div class="info-box right">
                     <label for="class-type">CLASS</label>
-                    <select name="class-type" id="class-type">
-                        <option value="Economy">ECONOMY</option>
-                        <option value="Business">BUSINESS</option>
+                    <select name="class-type" id="class-type" name="fclass" [(ngModel)]=searchdto.fclass >
+                        <option value="Economy" >ECONOMY</option>
+                        <option value="Business" >BUSINESS</option>
                     </select>
                 </div>
             </div>
