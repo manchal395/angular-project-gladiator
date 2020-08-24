@@ -1,7 +1,8 @@
 export class LoginStatus {
     status: string;
     message: string;
-    id: number;
+    userId: number;
     name: string;
+    userType: string;
      
   }
