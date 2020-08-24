@@ -25,6 +25,7 @@ export class AddFlightComponent implements OnInit {
   public dateselected = new Date();
 
   public City = [{ name: 'Agartala' }, { name: 'Agra'}, { name: 'Ahmedabad'},{ name: 'Aizwal' }, { name: 'Allahabad'}, { name: 'Amritsar'}, { name: 'Aurangabad' }, { name: 'Banglore'}, { name: 'Bhopal'}, { name: 'Bhubaneshwar' }, { name: 'Chandigarh'}, { name: 'Chennai'}, { name: 'Coimbatore' }, { name: 'Darjeeling'}, { name: 'Dehradun'}, { name: 'Delhi' }, { name: 'Dharamsala'}, { name: 'Gandhinagar'}, { name: 'Goa' }, { name: 'Guwhati'}, { name: 'Hyderabad'}, { name: 'Imphal' }, { name: 'Indore'}, { name: 'Jammu'}, { name: 'Kanpur' }, { name: 'Kochi'}, { name: 'Kolkata'}, { name: 'Kozhikode' }, { name: 'Lucknow'}, { name: 'Mumbai'}, { name: 'Nagpur' }, { name: 'Nasik'}, { name: 'Patna'},{ name: 'Pune' }, { name: 'Raipur'}, { name: 'Rajkot'}, { name: 'Ranchi' }, { name: 'Shillong'}, { name: 'Shimla'},{ name: 'Srinagar' }, { name: 'Tiruvanantpuram'}, { name: 'Vishakhapatnam'} ];
+  public placeholder: string = "Choose City";
 
   //public City = [ 'Agartala', 'Agra', 'Ahmedabad', 'Aizwal', 'Allahabad', 'Amritsar', 'Aurangabad', 'Banglore', 'Bhopal', 'Bhubaneshwar', 'Chandigarh', 'Chennai', 'Coimbatore', 'Darjeeling', 'Dehradun', 'Delhi', 'Dharamsala', 'Gandhinagar', 'Goa', 'Guwhati', 'Hyderabad', 'Imphal', 'Indore', 'Jammu', 'Kanpur', 'Kochi', 'Kolkata', 'Kozhikode', 'Lucknow', 'Mumbai', 'Nagpur', 'Nasik', 'Patna', 'Pune', 'Raipur', 'Rajkot', 'Ranchi', 'Shillong', 'Shimla', 'Srinagar','Tiruvanantpuram', 'Vishakhapatnam'];
 
@@ -35,8 +36,13 @@ export class AddFlightComponent implements OnInit {
     //alert(this.today + "\n" + this.departDate + "\n" + this.returnDate);
   }
 
+  onCity(e) {
+    alert(e.target.value);
+  }
+
   addFlight() {
 
+    //alert(JSON.stringify(this.addflightdto));
     this.adminservice.addFlight(this.addflightdto).subscribe( data =>{
       alert(JSON.stringify(data))
     })
