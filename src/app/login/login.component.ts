@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   login: Login = new Login();
   message: string;
+  
   //Dependency Injection - Over here we are injecting Router Object
   constructor(private router: Router,private loginService: LoginService) { }
 
@@ -21,21 +22,23 @@ export class LoginComponent implements OnInit {
     //alert(JSON.stringify(this.login));
     this.loginService.login(this.login).subscribe(data => {
       alert(JSON.stringify(data));
-      /*if(data.status == 'SUCCESS') {
-        let customerId = data.customerId;
-        let customerName = data.name;
+      if((data.status == 'SUCCESS') && (data.userType =='ADMIN')) {
+        let adminId = data.userId;
+        alert(data.userId);
+        let name = data.name;
+        let typeOfUser= data.userType;
         //let obj = {id : customerId, name : customerName};
-        sessionStorage.setItem('customerId', String(customerId));
-        sessionStorage.setItem('customerName', customerName);
-        this.router.navigate(['dashboard']);
+        sessionStorage.setItem('adminId', String(adminId));
+        sessionStorage.setItem('typeOfUser', typeOfUser);
+        sessionStorage.setItem('name', name);
+        this.router.navigate(['admin-dashboard']);
       }
       else {
         this.message = data.message;
-      }*/
+      }
     })
   }
 
 
 
 }
-

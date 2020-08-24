@@ -8,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 
 export class MenubarComponent implements OnInit {
 
+  name: string;
   constructor() { }
 
   ngOnInit(): void {
+    this.name=sessionStorage.getItem('name');
   }
+
 
 }

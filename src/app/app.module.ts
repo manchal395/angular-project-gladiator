@@ -16,6 +16,7 @@ import { AddFlightComponent } from './add-flight/add-flight.component';
 import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     AddFlightComponent,
     DeleteFlightComponent,
     AdminDashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    LogoutComponent
   ],
   imports: [
     AppRoutingModule,
