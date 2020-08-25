@@ -1,3 +1,5 @@
+import { BookingComponent } from './../booking/booking.component';
+
 import { Router } from '@angular/router';
 import { FetchedFlightsDto } from './../fetched-flights-dto';
 import { SearchFlightsService } from './../search-flights.service';
@@ -24,8 +26,10 @@ export class SearchResultComponent implements OnInit {
   isBusiness: boolean = false;
 
   selects: FetchedFlightsDto[] = [];
-  totalfare: number;
+  totalfare: number = 0;
   selected: boolean = false;
+
+  public dash: BookingComponent = new BookingComponent;
 
   constructor(private searchservice: SearchFlightsService, private router: Router) { }
 
@@ -73,9 +77,9 @@ export class SearchResultComponent implements OnInit {
     this.selects.push(f);
     alert(JSON.stringify(this.selects));
     if(this.searchdto.fclass == "Business")
-      this.totalfare = this.totalfare + Number(f.business);
+      this.totalfare = this.totalfare + f.business;
     else if(this.searchdto.fclass == "Economy")
-    this.totalfare = this.totalfare + Number(f.economy);
+      this.totalfare = this.totalfare + f.economy;
   }
 
   // add(f: FetchedFlightsDto) {
@@ -83,9 +87,14 @@ export class SearchResultComponent implements OnInit {
   //   this.selects.push(f);
   // }
 
+  bookticket() {
+    this.dash.getFlightsData(this.selects);
+    this.router.navigate(['booking']);
+  }
+
 }
 
-class SearchDetails {
+export class SearchDetails {
   from: String;
   to: String;
   date: Date;

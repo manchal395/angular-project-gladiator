@@ -1,8 +1,8 @@
 export class FetchedFlightsDto {
     airlines: string;
     id: number;
-    economy: DoubleRange;
-    business: DoubleRange;
+    economy: number;
+    business: number;
     source: string;
     destination: string;
     depart: any;
