@@ -10,11 +10,11 @@
             </div>
 
             <label for="email"><b>Email Address</b></label>
-            <input type="email" placeholder="Enter Email Address" name="email" [(ngModel)]=user.email required #email="ngModel">
+            <input type="email" placeholder="Enter Email Address" name="email" [(ngModel)]=user.email >
             <!-- <div *ngIf = "email.invalid && (email.dirty || email.touched)" class = "alert alert-danger"> -->
-                <div *ngIf="email.errors.email && (form.submitted || email.dirty)">
-                    Please provide a valid email
-               </div>
+                <!-- <div *ngIf="email.errors.email && (form.submitted || email.dirty)"> -->
+                    <!-- Please provide a valid email -->
+               <!-- </div> -->
             <!-- </div> -->
 
             <label for="password"><b>Password</b></label>
