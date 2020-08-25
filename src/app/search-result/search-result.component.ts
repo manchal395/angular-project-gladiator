@@ -23,6 +23,9 @@ export class SearchResultComponent implements OnInit {
   isEconomy: boolean = false;
   isBusiness: boolean = false;
 
+  selects: FetchedFlightsDto[] = [];
+  totalfare: number;
+  selected: boolean = false;
 
   constructor(private searchservice: SearchFlightsService, private router: Router) { }
 
@@ -55,15 +58,30 @@ export class SearchResultComponent implements OnInit {
     }
 
     alert(JSON.stringify(this.searchdto));
-
     this.searchservice.searchFlights(this.searchdto).subscribe(data => {
       //alert(JSON.stringify(data));
       this.fetchedflights = data;
       alert(JSON.stringify(this.fetchedflights));
+      alert(JSON.stringify(this.selects));
     })
 
-
   }
+
+  add(f: FetchedFlightsDto) {
+    this.selected = true;
+    alert(JSON.stringify(f));
+    this.selects.push(f);
+    alert(JSON.stringify(this.selects));
+    if(this.searchdto.fclass == "Business")
+      this.totalfare = this.totalfare + Number(f.business);
+    else if(this.searchdto.fclass == "Economy")
+    this.totalfare = this.totalfare + Number(f.economy);
+  }
+
+  // add(f: FetchedFlightsDto) {
+  //   alert(JSON.stringify(f));
+  //   this.selects.push(f);
+  // }
 
 }
 

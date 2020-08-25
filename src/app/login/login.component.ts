@@ -1,3 +1,4 @@
+import { MenubarComponent } from './../menubar/menubar.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('adminId', String(adminId));
         sessionStorage.setItem('typeOfUser', typeOfUser);
         sessionStorage.setItem('name', name);
+        sessionStorage.setItem('loggedin', "true");
         this.router.navigate(['admin-dashboard']);
       }
       else {

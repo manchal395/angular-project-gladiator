@@ -13,6 +13,7 @@ export class LogoutComponent implements OnInit {
     sessionStorage.setItem('adminId', null);
     sessionStorage.setItem('typeOfUser', null);
     sessionStorage.setItem('name', null);
+    sessionStorage.setItem('loggedin', "false");
     this.router.navigate(['login']);
 
   

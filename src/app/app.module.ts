@@ -18,6 +18,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { BookingComponent } from './booking/booking.component';
+import { CovidAlertComponent } from './covid-alert/covid-alert.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { BookingComponent } from './booking/booking.component';
     AdminDashboardComponent,
     UserDashboardComponent,
     LogoutComponent,
-    BookingComponent
+    BookingComponent,
+    CovidAlertComponent
   ],
   imports: [
     AppRoutingModule,

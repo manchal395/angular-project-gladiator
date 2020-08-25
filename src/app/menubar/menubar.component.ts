@@ -9,11 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class MenubarComponent implements OnInit {
 
   name: string;
+  public loggedin: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
-    this.name=sessionStorage.getItem('name');
+    this.change();
   }
 
+  change() {
+    //alert("Heya");
+    this.name=sessionStorage.getItem('name');
+    if(sessionStorage.getItem('loggedin') == "true")
+      this.loggedin = true;
+    else
+      this.loggedin = false;
+  }
 
 }

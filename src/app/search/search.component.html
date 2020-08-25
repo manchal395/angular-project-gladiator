@@ -52,7 +52,7 @@
                     <label for="adults">PASSENGERS</label>
                     <select name="adults" id="adults" name="noOfPassengers" [(ngModel)]=searchdto.noOfPassengers>
                         <option [ngValue]="null" [disabled]="true">--- Choose No. of Passengers ---</option>
-                        <option *ngFor="let no of passengers; trackBy:indexTracker" value=no>{{ no }}</option>
+                        <option *ngFor="let no of passengers; trackBy:indexTracker" [ngValue]=no>{{ no }}</option>
                         <!-- <option value="2" >2</option>
                         <option value="3" >3</option>
                         <option value="4" >4</option> -->
