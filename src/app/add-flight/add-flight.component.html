@@ -6,7 +6,10 @@
         <div class="container" id="flightbox">
             <div class="info-box">
                 <label for="fid"><b>Flight ID</b></label>
-                <input type="number" placeholder="Enter ID" name="id" [(ngModel)]=addflightdto.id>
+                <input type="number" placeholder="Enter ID" name="id" [(ngModel)]=addflightdto.id required #id="ngModel">
+                <div *ngIf = "id.invalid && (id.dirty || id.touched)" class = "alert alert-danger">
+                    <div *ngIf = "id.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Id is required</div>
+                </div>    
             </div>
 
             <div id="city-type">
