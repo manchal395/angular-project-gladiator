@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,21 +10,37 @@ import { Component, OnInit } from '@angular/core';
 export class MenubarComponent implements OnInit {
 
   name: string;
-  public loggedin: boolean;
+  static loggedin: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { 
+  }
 
   ngOnInit(): void {
-    this.change();
+
+    if(sessionStorage.getItem('loggedin') == "true") {
+      MenubarComponent.loggedin = true;
+    }
+    else {
+      MenubarComponent.loggedin= false;
+    }
+
+    if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="ADMIN") {
+      this.router.navigate(['admin-dashboard']);
+    }
+    else if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="USER") {
+      this.router.navigate(['user-dashboard']);
+    }
+    else if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == false){
+      this.router.navigate(['login'])
+    }
   }
 
   change() {
-    //alert("Heya");
-    this.name=sessionStorage.getItem('name');
-    if(sessionStorage.getItem('loggedin') == "true")
-      this.loggedin = true;
-    else
-      this.loggedin = false;
+    alert("Heya");
+  }
+
+  loggedIn() {
+    return MenubarComponent.loggedin;
   }
 
 }

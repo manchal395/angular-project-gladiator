@@ -46,10 +46,10 @@
     <div>
         <b><h2>BOOKING SUMMARY</h2></b>
     </div>
-    <div style="height:auto; display: flex;flex-flow: column;">
-        <div class="flights" *ngFor="let select of selects;" style="width: 50%; flex: 1 1 100%; margin-left: 25px;">
-            <div class="flightcard" style="width: 95%; text-align: left; flex-wrap: wrap;">
-                <div>
+    <div>
+        <div style="height:auto;">
+            <div class="flights" *ngFor="let select of selects;" style="width: 80%">
+                <div class="flightcard" style="width: 60%; text-align: left; display: inline-block; margin-right: 20px;">
                     <div class="flightdata">
                         <label id="fid">{{ select.airlines }} F{{ select.id }}</label>
                     </div>
@@ -67,18 +67,23 @@
                         <label id="tcity">{{ select.destination.substring(0,3) }}</label>
                     </div>
                 </div>
+                <div class="flightcard" style="width: 30%; margin-left: 10px; border-left: 1px solid grey;">
+                    <div style="text-align: center; margin-top: 15%;">
+                        <button type="submit" class="remove">Remove</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div>
-        <div class="flights" style="width: 30%; margin-right: 45px;">
-            <h3>Total Fare</h3>
-            <br>
-            <label>INR</label><br>
-            <label style="font-size: x-large; font-weight: 500;">{{ totalfare }}</label>
-            <br><br>
-            <button class="booknow" style="width: 80%;" (click)="bookticket()">Book Now</button>
-            <br>
+        <div>
+            <div class="flights" style="width: 80%; overflow: hidden;">
+                <div style="padding: 25px; height: 50px; color: #000066;;">
+                    <label style="float: left; margin-left: 20px; font-size: larger; font-weight: bold;">Total Fare</label> 
+                    &nbsp;
+                    <label>INR</label> &nbsp;
+                    <label style="font-size: x-large; font-weight: 500;">{{ totalfare }}</label>
+                    <button class="remove" style="width: 25%; background-color: #000066; margin-bottom: 15px; float: right;" (click)="bookticket()">Book Now</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

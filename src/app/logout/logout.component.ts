@@ -14,9 +14,8 @@ export class LogoutComponent implements OnInit {
     sessionStorage.setItem('typeOfUser', null);
     sessionStorage.setItem('name', null);
     sessionStorage.setItem('loggedin', "false");
-    this.router.navigate(['login']);
-
-  
+    sessionStorage.setItem('clicked', "true");
+    this.router.navigate(['menubar']);
   }
  
 

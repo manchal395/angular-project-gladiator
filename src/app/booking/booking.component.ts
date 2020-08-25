@@ -1,7 +1,5 @@
-import { element } from 'protractor';
 import { FetchedFlightsDto } from './../fetched-flights-dto';
-import { Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'booking',
@@ -12,11 +10,15 @@ export class BookingComponent implements OnInit {
 
   static selectedFlights: FetchedFlightsDto[] = [];
 
-  private router: Router;
+  passengers = parseInt(sessionStorage.getItem('noOfPassengers'));
+  passNo(n: number) : any[] {
+    return Array(n);
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+    alert(this.passengers);
   }
 
   getFlightsData(sd: FetchedFlightsDto[]) {

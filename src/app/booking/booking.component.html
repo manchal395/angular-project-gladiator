@@ -1,12 +1,17 @@
-<div class="card" >
-
+<div class="card">
     <form>
-        <table>
-            <tr *ngFor="let i of [1,2]">
-                
-                <div class="bookings">
-                    <th>
-                        <label for="title"><b>Title</b></label>
+        <table *ngFor="let i of passNo(passengers)" style="margin-bottom: 20px;">
+            <b> Passenger {{ i }} Details : </b>   
+            <div class="bookings">
+            <tr>
+                <th><label for="title"><b>Title</b></label></th>
+                <th><label for="name"><b>Full Name</b></label></th>
+                <th><label for="gender"><b>Gender</b></label></th>
+                <th><label for="age"><b>Age</b></label></th>
+                <th><label for="mobile"><b>Phone No.</b></label></th>
+            </tr>
+            <tr>         
+                    <td>
                         <select name="Title" id="title">
                             <option disabled="disabled" selected="selected" value="">--Title--</option>
                             <option value="Mr">Mr</option>
@@ -14,37 +19,32 @@
                             <option value="Ms">Ms</option>
                             <option value="Dr">Dr.</option>
                         </select>
-                    </th>
+                    </td>
 
-                    <th>
-                        <label for="name"><b>Full Name</b></label>
+                    <td>
                         <input type="text" placeholder="Enter Full Name" name="name" >
-                    </th>
+                    </td>
 
-                    <th>
-                        <label for="gender"><b>Gender</b></label>
+                    <td>
                         <select name="Gender" id="gender">
                             <option disabled="disabled" selected="selected" value="">--Select Gender--</option>
                             <option value="M">Male</option>
                             <option value="F">Female</option>
                             <option value="X">Other</option>
                         </select>
-                    </th>
+                    </td>
 
-                    <th>
-                        <label for="age"><b>Age</b></label>
+                    <td>
                         <input type="text" placeholder="Enter Age" name="age">
-                    </th>
+                    </td>
 
-                    <th>
-                        <label for="mobile"><b>Phone No.</b></label>
+                    <td>
                         <input type="tel" placeholder="Enter Phone Number" name="mobile">
-                    </th>
-                    
-                </div>
-            </tr>
-        </table>
+                    </td>
 
+            </tr>
+        </div>
+        </table>
     </form>
     <button type="submit" (click)="displayFlights()">Book Now</button>
 </div>

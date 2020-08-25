@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   user: Users = new Users();
-  constructor(private userService: UserService,private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
       if(data.status == 'SUCCESS') {
         //this.router.navigate(['thankyou'])
         alert("registration successfull");
+
       }
       else {
         //missing code right now

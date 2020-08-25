@@ -20,20 +20,21 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   loginUser() {
-    //alert(JSON.stringify(this.login));
+    alert(JSON.stringify(this.login));
     this.loginService.login(this.login).subscribe(data => {
       alert(JSON.stringify(data));
-      if((data.status == 'SUCCESS') && (data.userType =='ADMIN')) {
-        let adminId = data.userId;
+      if((data.status == 'SUCCESS')) {
+        let loggedinId = data.userId;
         alert(data.userId);
         let name = data.name;
         let typeOfUser= data.userType;
         //let obj = {id : customerId, name : customerName};
-        sessionStorage.setItem('adminId', String(adminId));
+        sessionStorage.setItem('loggedinId', String(loggedinId));
         sessionStorage.setItem('typeOfUser', typeOfUser);
         sessionStorage.setItem('name', name);
         sessionStorage.setItem('loggedin', "true");
-        this.router.navigate(['admin-dashboard']);
+        sessionStorage.setItem('clicked', "true");
+        this.router.navigate(['menubar']);
       }
       else {
         this.message = data.message;

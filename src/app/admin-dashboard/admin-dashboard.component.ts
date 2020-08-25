@@ -8,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
+  admin = sessionStorage.getItem('name');
   constructor() { }
 
-  private menu: MenubarComponent = new MenubarComponent;
+  //private menu: MenubarComponent = new MenubarComponent;
 
   ngOnInit(): void {
-    this.menu.change();
+    //this.menu.change();
   }
 
 }

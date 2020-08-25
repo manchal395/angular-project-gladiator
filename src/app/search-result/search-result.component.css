@@ -57,11 +57,21 @@ hr {
     vertical-align: 15px;
 }
 .booknow {
-    background-color: darkblue;
+    background-color :#000066;
     color: white;
     text-align: center;
     padding: 15px;
     width: 100%;
+    border: 1px solid;
+    font-size: medium;
+    margin-left: 22px;
+}
+.remove {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 60%;
     border: 1px solid;
     font-size: medium;
     margin-left: 22px;

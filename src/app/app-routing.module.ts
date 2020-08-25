@@ -1,3 +1,4 @@
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
@@ -9,11 +10,13 @@ import { NgModule, Component} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LogoutComponent } from './logout/logout.component';
 import { BookingComponent } from './booking/booking.component';
+import { MenubarComponent } from './menubar/menubar.component';
 
 const routes: Routes = [
   // component: Component's class name
   { path: '', component: SearchComponent}, 
   { path: 'search', component: SearchComponent}, 
+  { path: 'menubar', component: MenubarComponent },
   { path: 'login', component: LoginComponent},
   { path: 'booking', component: BookingComponent},
   { path: 'logout', component: LogoutComponent},
@@ -25,6 +28,7 @@ const routes: Routes = [
       { path: 'delete-flight', component: DeleteFlightComponent },
     ], 
   },
+  { path: 'user-dashboard', component: UserDashboardComponent }
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
