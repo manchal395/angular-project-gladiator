@@ -33,10 +33,17 @@ export class AddFlightComponent implements OnInit {
 
   ngOnInit(): void {
     //alert(this.today + "\n" + this.departDate + "\n" + this.returnDate);
+    this.addflightdto.fromCity = null;
+    this.addflightdto.toCity = null;
+  }
+
+  onCity(e) {
+    alert(e.target.value);
   }
 
   addFlight() {
 
+    //alert(JSON.stringify(this.addflightdto));
     this.adminservice.addFlight(this.addflightdto).subscribe( data =>{
       alert(JSON.stringify(data))
     })
