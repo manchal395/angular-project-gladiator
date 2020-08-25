@@ -1,14 +1,14 @@
-<div class="card">
+<div class="card" >
 
     <form>
         <table>
-            <tr>
+            <tr *ngFor="let i of [1,2]">
                 
                 <div class="bookings">
                     <th>
                         <label for="title"><b>Title</b></label>
                         <select name="Title" id="title">
-                            <option disabled="disabled" selected="selected" value="">Title</option>
+                            <option disabled="disabled" selected="selected" value="">--Title--</option>
                             <option value="Mr">Mr</option>
                             <option value="Mrs">Mrs</option>
                             <option value="Ms">Ms</option>
@@ -18,16 +18,16 @@
 
                     <th>
                         <label for="name"><b>Full Name</b></label>
-                        <input type="text" placeholder="Enter Full Name" name="name">
+                        <input type="text" placeholder="Enter Full Name" name="name" >
                     </th>
 
                     <th>
                         <label for="gender"><b>Gender</b></label>
                         <select name="Gender" id="gender">
-                            <option disabled="disabled" selected="selected" value="">Select Gender</option>
+                            <option disabled="disabled" selected="selected" value="">--Select Gender--</option>
                             <option value="M">Male</option>
                             <option value="F">Female</option>
-                            <option value="X">Undisclosed</option>
+                            <option value="X">Other</option>
                         </select>
                     </th>
 
@@ -47,4 +47,4 @@
 
     </form>
     <button type="submit">Book Now</button>
-</div>
+</div>  
