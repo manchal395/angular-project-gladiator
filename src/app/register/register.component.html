@@ -3,11 +3,19 @@
     <form (ngSubmit)="register()">
         <div class="container">
             <label for="name"><b>Full Name</b></label>
-            <input type="text" placeholder="Enter Full Name" name="name" [(ngModel)]=user.fullName>
+            <input type="text" placeholder="Enter Full Name" name="name" [(ngModel)]=user.fullName required minlength="4" #fullName="ngModel">
+            <div *ngIf = "fullName.invalid && (fullName.dirty || fullName.touched)" class = "alert alert-danger">
+                <div *ngIf = "fullName.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Name is required</div>
+                <div *ngIf = "fullName.errors.minlength" style="color:red; font-size: 15px; margin-bottom: 10px;">*must be at least 4 characters long</div>
+            </div>
 
             <label for="email"><b>Email Address</b></label>
-            <input type="email" placeholder="Enter Email Address" name="email" [(ngModel)]=user.email>
-
+            <input type="email" placeholder="Enter Email Address" name="email" [(ngModel)]=user.email required #email="ngModel">
+            <!-- <div *ngIf = "email.invalid && (email.dirty || email.touched)" class = "alert alert-danger"> -->
+                <div *ngIf="email.errors.email && (form.submitted || email.dirty)">
+                    Please provide a valid email
+               </div>
+            <!-- </div> -->
 
             <label for="password"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" [(ngModel)]=user.password>

@@ -8,12 +8,14 @@ import { SearchComponent } from './search/search.component';
 import { NgModule, Component} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LogoutComponent } from './logout/logout.component';
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
   // component: Component's class name
   { path: '', component: SearchComponent}, 
   { path: 'search', component: SearchComponent}, 
   { path: 'login', component: LoginComponent},
+  { path: 'booking', component: BookingComponent},
   { path: 'logout', component: LogoutComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'search-result', component: SearchResultComponent },

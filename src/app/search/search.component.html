@@ -6,11 +6,11 @@
         <div class="container" id="flightbox">
             <div id="flight-type">
                   <div class="info-box">
-                    <input type="radio" name="flight-type" value="Single" class="radiobtn" id="one-way" checked (change)="onChangeTrip($event)"/>
+                    <input type="radio" name="flight-type" checked [(ngModel)]=radiobtn value="oneway" class="radiobtn" id="one-way" (change)="onChangeTrip($event)"/>
                     <label for="one-way">ONE WAY</label>
                   </div>
                   <div class="info-box">
-                      <input type="radio" name="flight-type" value="Return" class="radiobtn" id="return" (change)="onChangeTrip($event)"/>
+                      <input type="radio" name="flight-type" [(ngModel)]=radiobtn value="return" class="radiobtn" id="return" (change)="onChangeTrip($event)"/>
                       <label for="return">RETURN</label>
                   </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="info-box left">
                     <label for="">FROM</label>
                     <select class="city" name="source" [(ngModel)]=searchdto.source>  
-                        <option value="" disabled selected hidden>Choose City</option>
+                        <option [ngValue]="null" [disabled]="true">--- Choose City ---</option>
                         <option *ngFor="let ct of City" [(ngValue)]=ct.name>{{ct.name}} </option>  
                     </select>  
                     <div id="depart-res"></div>
@@ -27,7 +27,7 @@
                 <div class="info-box right" id="arrive-box">
                     <label for="">TO</label>
                     <select class="city" name="destination" [(ngModel)]=searchdto.destination>  
-                        <option value="" disabled selected hidden>Choose City</option>
+                        <option [ngValue]="null" [disabled]="true">--- Choose City ---</option>
                         <option *ngFor="let ct of City" [(ngValue)]=ct.name>{{ct.name}} </option>  
                     </select> 
                     <div id="arrive-res"></div>
@@ -47,19 +47,12 @@
                   </div>
             </div>
 
-  <!-- <mat-form-field appearence="fill">
-  <mat-label>Choose a Date</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field> -->
-
-
             <div id="flight-info">
                 <div class="info-box left">
                     <label for="adults">PASSENGERS</label>
                     <select name="adults" id="adults" name="noOfPassengers" [(ngModel)]=searchdto.noOfPassengers>
-                        <option *ngFor="let no of passengers; trackBy:indexTracker">{{ no }}</option>
+                        <option [ngValue]="null" [disabled]="true">--- Choose No. of Passengers ---</option>
+                        <option *ngFor="let no of passengers; trackBy:indexTracker" value=no>{{ no }}</option>
                         <!-- <option value="2" >2</option>
                         <option value="3" >3</option>
                         <option value="4" >4</option> -->
@@ -68,6 +61,7 @@
                 <div class="info-box right">
                     <label for="class-type">CLASS</label>
                     <select name="class-type" id="class-type" name="fclass" [(ngModel)]=searchdto.fclass >
+                        <option [ngValue]="null" [disabled]="true">--- Choose Cabin Type ---</option>
                         <option value="Economy" >ECONOMY</option>
                         <option value="Business" >BUSINESS</option>
                     </select>

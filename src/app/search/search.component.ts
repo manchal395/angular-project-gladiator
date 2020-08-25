@@ -15,13 +15,12 @@ export class SearchComponent implements OnInit {
   public passengers:number[] = [1,2,3,4,5];
   public selected: boolean = true;
   public today = new Date();
-  // public departDate = this.today.getFullYear() + "-" + (((this.today.getMonth()+1)<10?'0':'') + (this.today.getMonth()+1)) + "-" + (this.today.getDate()<10?'0':'' + this.today.getDate());
-  // public returnDate = this.today.getFullYear() + "-" + (((this.today.getMonth()+1)<10?'0':'') + (this.today.getMonth()+1)) + "-" + ((this.today.getDate()+1)<10?'0':'' + (this.today.getDate()+1));
   public departDate = this.today.toLocaleDateString('fr-CA');
   public returnDate = this.today.toLocaleDateString('fr-CA');
   public resetDate = "";
   public oneway: boolean = true;
   public dateselected = new Date();
+  public radiobtn = "oneway";
 
   constructor(private router: Router) { }
 
@@ -32,6 +31,11 @@ export class SearchComponent implements OnInit {
     sessionStorage.setItem('arrive', null);
     sessionStorage.setItem('noOfPassengers', null);
     sessionStorage.setItem('fclass', null);
+
+    this.searchdto.source = null;
+    this.searchdto.destination = null;
+    this.searchdto.noOfPassengers = null;
+    this.searchdto.fclass = null;
   }
 
   indexTracker(index: number, value: any) {
@@ -40,10 +44,10 @@ export class SearchComponent implements OnInit {
 
   // radio button enable-disable return date entry
   onChangeTrip(e) {
-    if(e.target.value == "Single") {
+    if(e.target.value == "oneway") {
       this.oneway = true;
     }
-    else if(e.target.value == "Return") {
+    else if(e.target.value == "return") {
       this.oneway = false;
     }
   }
@@ -62,11 +66,15 @@ export class SearchComponent implements OnInit {
   }
 
   searchFlights() {
+    alert(this.radiobtn);
     alert(JSON.stringify(this.searchdto));
     sessionStorage.setItem('source', this.searchdto.source);
     sessionStorage.setItem('destination', this.searchdto.destination);
     sessionStorage.setItem('depart', this.searchdto.depart);
-    sessionStorage.setItem('arrive', this.searchdto.arrive);
+    if(this.radiobtn == "oneway")
+      sessionStorage.setItem('arrive', '');
+    else if(this.radiobtn == "return")
+      sessionStorage.setItem('arrive', this.searchdto.arrive);
     sessionStorage.setItem('noOfPassengers', this.searchdto.noOfPassengers.toString());
     sessionStorage.setItem('fclass', this.searchdto.fclass);
     this.router.navigate(['search-result']);

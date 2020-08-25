@@ -6,15 +6,15 @@
         <div class="container" id="flightbox">
             <div class="info-box">
                 <label for="fid"><b>Flight ID</b></label>
-                <input type="int" placeholder="Enter ID" name="id" [(ngModel)]=addflightdto.id>
+                <input type="number" placeholder="Enter ID" name="id" [(ngModel)]=addflightdto.id>
             </div>
 
             <div id="city-type">
                 <div class="info-box left">
                     <label for="frm"><b>Source</b></label>
                     <!-- <input type="text" placeholder="Enter City" name="fromCity" [(ngModel)]=addflightdto.fromCity/> -->
-                    <select class="city" name="fromCity" [(ngModel)]=addflightdto.fromCity (change)="onCity($event)">  
-                        <option [ngValue]=placeholder disabled selected>{{ placeholder }}</option>
+                    <select class="city" name="fromCity" [(ngModel)]=addflightdto.fromCity (change)="onCity($event)" style="border-color: #6B6A6A;">  
+                        <option [ngValue]="null" [disabled]="true">--- Choose City ---</option>
                         <option *ngFor="let ct of City" [ngValue]=ct.name>{{ct.name}} </option>  
                     </select> 
                     <div id="depart-res"></div>
@@ -23,8 +23,8 @@
                 <div class="info-box right" id="arrive-box">
                     <label for="to"><b>Destination</b></label>
                     <!-- <input type="text" placeholder="Enter City" name="toCity" [(ngModel)]=addflightdto.toCity/> -->
-                    <select class="city" name="toCity" [(ngModel)]=addflightdto.toCity required>  
-                        <option [ngValue]="null">Choose City</option>
+                    <select class="city" name="toCity" [(ngModel)]=addflightdto.toCity style="border-color: #6B6A6A;">  
+                        <option [ngValue]="null" [disabled]="true">--- Choose City ---</option>
                         <option *ngFor="let ct of City" [ngValue]=ct.name>{{ct.name}} </option>  
                     </select> 
                     <div id="arrive-res"></div>

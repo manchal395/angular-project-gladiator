@@ -13,10 +13,6 @@
   font-size: large;
   width: 50%;
   text-align: center;
-  
-}
-.container input, select {
-  border-color: #6B6A6A;
 }
 .container button:hover {
   font-size: larger;
@@ -33,7 +29,12 @@
 .container select:hover {
         border: 2px solid darkblue;
 }
-
+.info-box select:focus {
+  outline: none;
+}
 .container select:focus {
   border: 2px solid red;
+}
+input, select {
+  border-color: #6B6A6A;
 }
