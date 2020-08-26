@@ -44,6 +44,7 @@ export class SearchComponent implements OnInit {
 
   // radio button enable-disable return date entry
   onChangeTrip(e) {
+    alert(e.target.value);
     if(e.target.value == "oneway") {
       this.oneway = true;
     }
@@ -58,6 +59,10 @@ export class SearchComponent implements OnInit {
     //resetting selected return date to departdate
     this.resetDate = e.target.value;
     //alert(e.target.value);
+  }
+
+  onReturnDateSelect(e) {
+    this.resetDate = e.target.value;
   }
 
   public selectedval = 1;
@@ -77,7 +82,7 @@ export class SearchComponent implements OnInit {
       sessionStorage.setItem('arrive', this.searchdto.arrive);
     sessionStorage.setItem('noOfPassengers', this.searchdto.noOfPassengers.toString());
     sessionStorage.setItem('fclass', this.searchdto.fclass);
-    this.router.navigate(['search-result']);
+    //this.router.navigate(['search-result']);
   }
 
 

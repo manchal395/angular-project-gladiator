@@ -1,5 +1,3 @@
-import { DatePipe } from '@angular/common';
-
 export class SearchFlightDto {
     source: string;
     destination: string;

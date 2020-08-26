@@ -43,7 +43,7 @@
                     <label for="">RETURN</label>
                     <!-- this date works different in different browsers -->
                     <!-- <input type="text" id="return-date" placeholder="Select Date" onfocus="(this.type='date')"/> -->
-                    <input type="date" id="return-date" [value]="returnDate" [min]="returnDate" placeholder="Select Date" [disabled]="oneway" name="arrive" [(ngModel)]=searchdto.arrive style="border-color: #6B6A6A;"/>
+                    <input type="date" id="return-date" [value]="resetDate" [min]="returnDate" placeholder="Select Date" [disabled]="oneway" name="arrive" [(ngModel)]=searchdto.arrive style="border-color: #6B6A6A;"/>
                   </div>
             </div>
 
