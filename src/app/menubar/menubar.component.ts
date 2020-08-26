@@ -25,12 +25,15 @@ export class MenubarComponent implements OnInit {
     }
 
     if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="ADMIN") {
+      sessionStorage.setItem('clicked', "false");
       this.router.navigate(['admin-dashboard']);
     }
     else if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="USER") {
+      sessionStorage.setItem('clicked', "false");
       this.router.navigate(['user-dashboard']);
     }
     else if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == false){
+      sessionStorage.setItem('clicked', "false");
       this.router.navigate(['login'])
     }
   }
