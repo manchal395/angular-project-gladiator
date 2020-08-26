@@ -81,8 +81,8 @@ export class SearchComponent implements OnInit {
     else if(this.radiobtn == "return")
       sessionStorage.setItem('arrive', this.searchdto.arrive);
     sessionStorage.setItem('noOfPassengers', this.searchdto.noOfPassengers.toString());
-    sessionStorage.setItem('fclass', this.searchdto.fclass);
-    //this.router.navigate(['search-result']);
+    sessionStorage.setItem('fclass', this.searchdto.fclass.toLocaleUpperCase());
+    this.router.navigate(['search-result']);
   }
 
 

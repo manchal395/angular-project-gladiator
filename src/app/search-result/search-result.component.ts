@@ -29,8 +29,6 @@ export class SearchResultComponent implements OnInit {
   totalfare: number = 0;
   selected: boolean = false;
 
-  public dash: BookingComponent = new BookingComponent;
-
   constructor(private searchservice: SearchFlightsService, private router: Router) { }
 
   ngOnInit(): void {
@@ -46,9 +44,9 @@ export class SearchResultComponent implements OnInit {
     this.searchdto.noOfPassengers = Number(sessionStorage.getItem('noOfPassengers'));
     this.searchdto.fclass = sessionStorage.getItem('fclass');
 
-    if(this.searchdto.fclass == "Business")
+    if(this.searchdto.fclass == "BUSINESS")
       this.isBusiness = true;
-    else if(this.searchdto.fclass == "Economy")
+    else if(this.searchdto.fclass == "ECONOMY")
       this.isEconomy = true;
 
     if(this.searchdto.arrive == '') {
@@ -76,9 +74,9 @@ export class SearchResultComponent implements OnInit {
     //alert(JSON.stringify(f));
     this.selects.push(f);
     alert(JSON.stringify(this.selects));
-    if(this.searchdto.fclass == "Business")
+    if(this.searchdto.fclass == "BUSINESS")
       this.totalfare = this.totalfare + f.business;
-    else if(this.searchdto.fclass == "Economy")
+    else if(this.searchdto.fclass == "ECONOMY")
       this.totalfare = this.totalfare + f.economy;
   }
 
@@ -92,7 +90,13 @@ export class SearchResultComponent implements OnInit {
   // }
 
   bookticket() {
-    this.dash.getFlightsData(this.selects);
+    // this.dash.getFlightsData(this.selects);
+    sessionStorage.setItem('dept_fs_id', this.selects[0].fsId.toString());
+    if(this.selects.length == 2)
+      sessionStorage.setItem('ret_fs_id', this.selects[1].fsId.toString());
+    else
+      sessionStorage.setItem('ret_fs_id', "0");
+    sessionStorage.setItem('amount', this.totalfare.toString());
     this.router.navigate(['booking']);
   }
 

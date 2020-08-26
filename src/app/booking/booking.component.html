@@ -1,19 +1,20 @@
 <div class="card">
-    <form #bookingForm="ngForm" >
-        <table *ngFor="let i of passNo(passengers)" style="margin-bottom: 20px;">
-            <b> Passenger {{ i }} Details : </b>   
+    <form (ngSubmit)="displayFlights()">
+        <table *ngFor="let pass of passNo(passengers); let i = index; trackBy: trackByMethod"
+            style="margin-bottom: 20px;">
+            <b> Passenger {{ (i+1) }} Details : </b>
             <div class="bookings">
-            <tr>
-                <th><label for="title"><b>Title</b></label></th>
-                <th><label for="name"><b>Full Name</b></label></th>
-                <th><label for="gender"><b>Gender</b></label></th>
-                <th><label for="age"><b>Age</b></label></th>
-                <th><label for="mobile"><b>Phone No.</b></label></th>
-            </tr>
-            <tr>         
+                <tr>
+                    <th><label for="title"><b>Title</b></label></th>
+                    <th><label for="name"><b>Full Name</b></label></th>
+                    <th><label for="gender"><b>Gender</b></label></th>
+                    <th><label for="age"><b>Age</b></label></th>
+                    <th><label for="mobile"><b>Phone No.</b></label></th>
+                </tr>
+                <tr>
                     <td>
-                        <select  name="Title" id="title">
-                            <option disabled="disabled" selected="selected" value="">--Title--</option>
+                        <select name="title" id="title" [(ngModel)]="booking.passengersDetails[i].title">
+                            <option [ngValue]="null" [disabled]="true">--Title--</option>
                             <option value="Mr">Mr</option>
                             <option value="Mrs">Mrs</option>
                             <option value="Ms">Ms</option>
@@ -22,29 +23,32 @@
                     </td>
 
                     <td>
-                        <input  type="text" placeholder="Enter Full Name" name="name" >
+                        <input type="text" placeholder="Enter Full Name" name="fullName"
+                            [(ngModel)]="booking.passengersDetails[i].fullName">
                     </td>
 
                     <td>
-                        <select name="Gender" id="gender">
-                            <option disabled="disabled" selected="selected" value="">--Select Gender--</option>
-                            <option value="M">Male</option>
-                            <option value="F">Female</option>
-                            <option value="X">Other</option>
+                        <select name="gender" id="gender" [(ngModel)]="booking.passengersDetails[i].gender">
+                            <option [ngValue]="null" [disabled]="true">--Select Gender--</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
                         </select>
                     </td>
 
                     <td>
-                        <input type="text" placeholder="Enter Age" name="age">
+                        <input type="text" placeholder="Enter Age" name="age"
+                            [(ngModel)]="booking.passengersDetails[i].age">
                     </td>
 
                     <td>
-                        <input type="tel" placeholder="Enter Phone Number" name="mobile">
+                        <input type="tel" placeholder="Enter Phone Number" name="phoneNumber"
+                            [(ngModel)]="booking.passengersDetails[i].phoneNumber">
                     </td>
 
-            </tr>
-        </div>
+                </tr>
+            </div>
         </table>
+        <button type="submit">Book Now</button>
     </form>
-    <button type="submit" (click)="displayFlights()">Book Now</button>
 </div>

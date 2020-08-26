@@ -1,4 +1,3 @@
-import { MenubarComponent } from './../menubar/menubar.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
@@ -15,7 +14,7 @@ export class LoginComponent implements OnInit {
   message: string;
   
   //Dependency Injection - Over here we are injecting Router Object
-  constructor(private router: Router,private loginService: LoginService) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit(): void {
   }

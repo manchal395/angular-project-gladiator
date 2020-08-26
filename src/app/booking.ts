@@ -4,7 +4,7 @@ export class AddBookingDto {
     returnFlightScheduleId: number;
     userId: number;
     noOfPassengers: number;
-    passengersDetails: AddPassengerDto[];
+    passengersDetails: AddPassengerDto[] = [];
     amount: any;
     fclass: any;
 }

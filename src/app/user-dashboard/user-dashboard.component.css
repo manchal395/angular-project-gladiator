@@ -1,0 +1,15 @@
+.cancelbtn {
+    width: 250px;
+    padding: 25px;
+    font-size: large;
+    background-color: red;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+button:focus, 
+    button :hover {
+        font-size: larger;
+        cursor: pointer;
+    }
