@@ -1,4 +1,4 @@
-import { element } from 'protractor';
+//import { element } from 'protractor';
 import { BookingComponent } from './../booking/booking.component';
 
 import { Router } from '@angular/router';
