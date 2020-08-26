@@ -1,5 +1,5 @@
 <div class="card">
-    <form>
+    <form #bookingForm="ngForm" >
         <table *ngFor="let i of passNo(passengers)" style="margin-bottom: 20px;">
             <b> Passenger {{ i }} Details : </b>   
             <div class="bookings">
@@ -12,7 +12,7 @@
             </tr>
             <tr>         
                     <td>
-                        <select name="Title" id="title">
+                        <select  name="Title" id="title">
                             <option disabled="disabled" selected="selected" value="">--Title--</option>
                             <option value="Mr">Mr</option>
                             <option value="Mrs">Mrs</option>
@@ -22,7 +22,7 @@
                     </td>
 
                     <td>
-                        <input type="text" placeholder="Enter Full Name" name="name" >
+                        <input  type="text" placeholder="Enter Full Name" name="name" >
                     </td>
 
                     <td>
