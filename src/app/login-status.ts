@@ -4,5 +4,4 @@ export class LoginStatus {
     userId: number;
     name: string;
     userType: string;
-     
   }

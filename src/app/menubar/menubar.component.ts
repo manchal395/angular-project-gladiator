@@ -28,6 +28,11 @@ export class MenubarComponent implements OnInit {
       sessionStorage.setItem('clicked', "false");
       this.router.navigate(['admin-dashboard']);
     }
+    else if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="USER" && sessionStorage.getItem('bookingIn')=="true") {
+      sessionStorage.setItem('clicked', "false");
+      sessionStorage.setItem('bookingIn', "false");
+      this.router.navigate(['booking']);
+    }
     else if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="USER") {
       sessionStorage.setItem('clicked', "false");
       this.router.navigate(['user-dashboard']);

@@ -28,6 +28,7 @@ export class SearchResultComponent implements OnInit {
   selects: FetchedFlightsDto[] = [];
   totalfare: number = 0;
   selected: boolean = false;
+  found: boolean = false;
 
   constructor(private searchservice: SearchFlightsService, private router: Router) { }
 
@@ -59,12 +60,17 @@ export class SearchResultComponent implements OnInit {
       ];
     }
 
-    alert(JSON.stringify(this.searchdto));
+    //alert(JSON.stringify(this.searchdto));
     this.searchservice.searchFlights(this.searchdto).subscribe(data => {
-      //alert(JSON.stringify(data));
+      alert(JSON.stringify(data));
+      if(Object.keys(data).length == 0)
+        this.router.navigate(['search']);
+      else
+        this.found = true;
       this.fetchedflights = data;
+
       //alert(JSON.stringify(this.fetchedflights));
-      alert(JSON.stringify(this.selects));
+      //alert(JSON.stringify(this.selects));
     })
 
   }
@@ -75,9 +81,9 @@ export class SearchResultComponent implements OnInit {
     this.selects.push(f);
     alert(JSON.stringify(this.selects));
     if(this.searchdto.fclass == "BUSINESS")
-      this.totalfare = this.totalfare + f.business;
+      this.totalfare = (this.totalfare + f.business) * parseInt(sessionStorage.getItem('noOfPassengers'));
     else if(this.searchdto.fclass == "ECONOMY")
-      this.totalfare = this.totalfare + f.economy;
+      this.totalfare = (this.totalfare + f.economy) * parseInt(sessionStorage.getItem('noOfPassengers'));
   }
 
   remove(f: FetchedFlightsDto) {
@@ -97,7 +103,15 @@ export class SearchResultComponent implements OnInit {
     else
       sessionStorage.setItem('ret_fs_id', "0");
     sessionStorage.setItem('amount', this.totalfare.toString());
-    this.router.navigate(['booking']);
+    if(sessionStorage.getItem('loggedinId') == "null") {
+      alert("You are not logged in. Login to continue booking...")
+      sessionStorage.setItem('bookingIn', "true");
+      this.router.navigate(['login']);
+    }
+    else {
+      sessionStorage.setItem('bookingIn', "false");
+      this.router.navigate(['booking']);
+    }
   }
 
 }

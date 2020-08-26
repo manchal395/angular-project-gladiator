@@ -52,7 +52,7 @@ export class BookingComponent implements OnInit {
 
   displayFlights() {
     this.booking.userId = parseInt(sessionStorage.getItem('loggedinId'));
-    this.booking.amount = parseInt(sessionStorage.getItem('amount'))*this.passengers;
+    this.booking.amount = parseInt(sessionStorage.getItem('amount'));
     this.booking.departFlightScheduleId = parseInt(sessionStorage.getItem('dept_fs_id'));
     this.booking.returnFlightScheduleId = parseInt(sessionStorage.getItem('ret_fs_id'));
     this.booking.noOfPassengers = parseInt(sessionStorage.getItem('noOfPassengers'));
@@ -61,7 +61,14 @@ export class BookingComponent implements OnInit {
     
     this.bookservice.createBooking(this.booking).subscribe(data => {
       alert(JSON.stringify(data));
-      this.router.navigate(['user-dashboard']);
+      if(data.status == 'SUCCESS') {
+        alert(data.message);
+        this.router.navigate(['user-dashboard']);
+      }
+      else {
+        alert(data.message);
+        this.router.navigate(['search']);
+      }
     })
   }
 }
