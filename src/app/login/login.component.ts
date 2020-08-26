@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       alert(JSON.stringify(data));
       if((data.status == 'SUCCESS')) {
         let loggedinId = data.userId;
-        alert(data.userId);
+        //alert(data.userId);
         let name = data.name;
         let typeOfUser= data.userType;
         //let obj = {id : customerId, name : customerName};
