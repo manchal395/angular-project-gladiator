@@ -1,5 +1,5 @@
 <div class="card">
-    <form (ngSubmit)="deleteFlight()" id="admin-form">
+    <form #addDel="ngForm" (ngSubmit)="deleteFlight()" id="admin-form">
         <div id="header">
             <h3 style="text-align: center;">Delete Flights</h3>
         </div>
@@ -11,7 +11,7 @@
             </div>   
             <!--deleting data from schedule-->
             <!--every day  schedule to be deleted using a trigger. Two seperate tables one conytaining history of the schedules and one containning future schedules-->
-            <button type="submit" id="edit-flight">Delete Flight</button>
+            <button type="submit" id="edit-flight"[disabled]="addDel.invalid">Delete Flight</button>
         </div>
     </form>
 </div>
