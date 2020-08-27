@@ -1,3 +1,4 @@
+import { ViewDashboardComponent } from './view-dashboard/view-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'booking', component: BookingComponent},
   { path: 'logout', component: LogoutComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'view-dashboard', component: ViewDashboardComponent},
   { path: 'search-result', component: SearchResultComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent,
     children: [

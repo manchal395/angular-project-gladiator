@@ -106,7 +106,7 @@ export class SearchResultComponent implements OnInit {
     if(sessionStorage.getItem('loggedinId') == "null") {
       alert("You are not logged in. Login to continue booking...")
       sessionStorage.setItem('bookingIn', "true");
-      this.router.navigate(['login']);
+      this.router.navigate(['menubar']);
     }
     else {
       sessionStorage.setItem('bookingIn', "false");

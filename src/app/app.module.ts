@@ -19,6 +19,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { LogoutComponent } from './logout/logout.component';
 import { BookingComponent } from './booking/booking.component';
 import { CovidAlertComponent } from './covid-alert/covid-alert.component';
+import { ViewDashboardComponent } from './view-dashboard/view-dashboard.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CovidAlertComponent } from './covid-alert/covid-alert.component';
     UserDashboardComponent,
     LogoutComponent,
     BookingComponent,
-    CovidAlertComponent
+    CovidAlertComponent,
+    ViewDashboardComponent
   ],
   imports: [
     AppRoutingModule,

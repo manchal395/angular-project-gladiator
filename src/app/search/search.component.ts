@@ -44,7 +44,7 @@ export class SearchComponent implements OnInit {
 
   // radio button enable-disable return date entry
   onChangeTrip(e) {
-    alert(e.target.value);
+    //alert(e.target.value);
     if(e.target.value == "oneway") {
       this.oneway = true;
     }
