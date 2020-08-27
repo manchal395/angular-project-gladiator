@@ -1,21 +1,49 @@
 <div class="card">
     <h2 style="text-align: center;">Register to Rafale Account</h2>
-    <form>
+    <form (ngSubmit)="register()" #f="ngForm" name="form" >
         <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname">
-
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw">
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" placeholder="Enter Full Name" name="name" [(ngModel)]=user.fullName required minlength="4" #fullName="ngModel">
+            <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched) || f.submitted && fullName.invalid" class="alert alert-danger">
+                <div *ngIf="fullName.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Name is required</div>
+                <div *ngIf = "fullName.errors.minlength" style="color:red; font-size: 15px; margin-bottom: 10px;">*Name must be at least 4 characters long</div>
+            </div>  
+            <!-- <div *ngIf = "fullName.invalid && (fullName.dirty || fullName.touched)" class = "alert alert-danger">
+                <div *ngIf = "fullName.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Name is required</div>
+                <div *ngIf = "fullName.errors.minlength" style="color:red; font-size: 15px; margin-bottom: 10px;">*Name must be at least 4 characters long</div>
+            </div> -->
 
             <label for="email"><b>Email Address</b></label>
-            <input type="email" placeholder="Enter Email Address" name="email">
+            <input type="email" placeholder="Enter Email Address" name="email" [(ngModel)]=user.email #email="ngModel" required email>
+            <div *ngIf="email.invalid && (email.dirty || email.touched) || f.submitted && email.invalid" class="alert alert-danger">
+                <div *ngIf="email.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Email is required</div>
+                <div *ngIf="email.errors.email" style="color:red; font-size: 15px; margin-bottom: 10px;">*Email must be a valid email address</div>
+            </div>
+            <!-- <div *ngIf = "email.invalid && (email.dirty || email.touched)" class = "alert alert-danger"> -->
+                <!-- <div *ngIf="email.errors.email && (form.submitted || email.dirty)"> -->
+                    <!-- Please provide a valid email -->
+               <!-- </div> -->
+            <!-- </div> -->
 
-            <label for="city"><b>City</b></label>
-            <input type="text" placeholder="Enter City" name="city">
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" [(ngModel)]=user.password #password="ngModel" required minlength="6">
+            <div *ngIf="password.invalid && (password.dirty || password.touched) || f.submitted && password.invalid" class="alert alert-danger">
+                <div *ngIf="password.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Password is required</div>
+                <div *ngIf="password.errors.minlength" style="color:red; font-size: 15px; margin-bottom: 10px;">*Password must be at least 6 characters</div>
+            </div>
+
+            <label for="dOB"><b>Date Of Birth</b></label>
+            <input type="date" placeholder="Enter Date Of Birth" name="dOB" [(ngModel)]=user.dateOfBirth #dOB="ngModel" required>
+            <div *ngIf="dOB.invalid && (dOB.dirty || dOB.touched) || f.submitted && password.invalid" class="alert alert-danger">
+                <div *ngIf="dOB.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Date Of Birth is required</div>
+            </div>
 
             <label for="mobile"><b>Mobile No.</b></label>
-            <input type="tel" placeholder="Enter Mobile Number" name="mobile">
+            <input type="tel" placeholder="Enter Mobile Number" name="mobile" [(ngModel)]=user.phoneNo #mobile="ngModel" required minlength="10" maxlength="10">
+            <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched) || f.submitted && password.invalid" class="alert alert-danger">
+                <div *ngIf="mobile.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Phone number is required</div>
+                <div *ngIf="mobile.errors.minlength" style="color:red; font-size: 15px; margin-bottom: 10px;">*Enter a valid phone number</div>
+           </div>
 
             <button type="submit">Register</button>
         </div>

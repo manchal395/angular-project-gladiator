@@ -15,7 +15,7 @@
     margin: auto;
   }
   .flight input, select {
-      color: #6B6A6A;
+      border-color: #6B6A6A;
   }
   .info-box {
     padding: 10px 0;

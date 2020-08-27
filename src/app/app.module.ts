@@ -16,6 +16,15 @@ import { AddFlightComponent } from './add-flight/add-flight.component';
 import { DeleteFlightComponent } from './delete-flight/delete-flight.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { LogoutComponent } from './logout/logout.component';
+import { BookingComponent } from './booking/booking.component';
+import { CovidAlertComponent } from './covid-alert/covid-alert.component';
+import { ViewDashboardComponent } from './view-dashboard/view-dashboard.component';
+import { BookingTicketComponent } from './booking-ticket/booking-ticket.component';
+import { CovidGuidelinesComponent } from './covid-guidelines/covid-guidelines.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { MessageComponent } from './message/message.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
@@ -31,7 +40,16 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     AddFlightComponent,
     DeleteFlightComponent,
     AdminDashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    LogoutComponent,
+    BookingComponent,
+    CovidAlertComponent,
+    ViewDashboardComponent,
+    BookingTicketComponent,
+    CovidGuidelinesComponent,
+    AboutUsComponent,
+    MessageComponent,
+    ContactUsComponent
   ],
   imports: [
     AppRoutingModule,

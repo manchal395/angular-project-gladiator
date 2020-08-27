@@ -1,0 +1,153 @@
+<div style="overflow: hidden;">
+
+    <div class="search-details" style="overflow: hidden;">
+        <div>
+            <b>
+                <h2>BOOKING SUMMARY</h2>
+            </b>
+        </div>
+        <div>
+            <div style="height:auto;">
+                <div class="flights" *ngFor="let select of selectedFlights;" style="width: 90%">
+                    <div class="flightcard"
+                        style="width: 98%; text-align: left; display: inline-block;">
+                        <div class="flightdata">
+                            <label id="fid">{{ select.airlines }} F{{ select.id }}</label>
+                        </div>
+                        <div class="flightdata" style="font-size: x-large; font-weight: bolder;">
+                            <label id="fdepart">{{ select.depart.substring(11,16) }}</label>
+                            <label id="farrival">{{ select.arrive.substring(11,16) }}</label>
+                        </div>
+                        <img id="loc" src="assets/images/location.png" alt="" style="float: left;">
+                        &nbsp;&nbsp;
+                        <hr>
+                        <img id="plane" src="assets/images/plane.png" alt="">
+                        <hr>
+                        <img id="loc" src="assets/images/location.png" alt="" style="float: right;">
+                        <div class="flightdata" style="font-size: medium;">
+                            <label id="fcity">{{ select.source.substring(0,3) }}</label>
+                            <label id="tcity">{{ select.destination.substring(0,3) }}</label>
+                        </div>
+                    </div>
+                    <!-- <div class="flightcard" style="width: 30%; margin-left: 10px; border-left: 1px solid grey;">
+                            <div style="text-align: center; margin-top: 15%;">
+                                <button type="submit" class="remove">Remove</button>
+                            </div>
+                        </div> -->
+                </div>
+            </div>
+            <div>
+                <div class="flights" style="width: 80%; overflow: hidden;">
+                    <div style="padding: 15px; height: max-content; color: #000066;;">
+                        <label style="float: left; margin-left: 20px; font-size: larger; font-weight: bold;">Total
+                            Fare</label>
+                        &nbsp; &nbsp; &nbsp;
+                        <label>INR</label> &nbsp; &nbsp; &nbsp;
+                        <label style="font-size: x-large; font-weight: 500;">{{ totalfare }}</label> <br><br>
+                        <label style="font-size: large; text-align: center; font-weight: 500;">No. of Passengers: {{ pass }}</label>
+                        <button class="remove" style="width: 50%; background-color: #000066; margin-top: 10px;" routerLink="/">Modify Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cardd">
+        <form (ngSubmit)="addPayment()" #f="ngForm" name="form">
+            <table *ngFor="let pass of passNo(passengers); let i = index; trackBy: trackByMethod"
+                style="margin-bottom: 20px;">
+                <b> Passenger {{ (i+1) }} Details : </b>
+                <div class="bookings">
+                    <tr>
+                        <th><label for="title"><b>Title</b></label></th>
+                        <th><label for="name"><b>Full Name</b></label></th>
+                        <th><label for="gender"><b>Gender</b></label></th>
+                        <th><label for="age"><b>Age</b></label></th>
+                        <th><label for="mobile"><b>Phone No.</b></label></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="title" id="title" [(ngModel)]="booking.passengersDetails[i].title" required
+                                #title="ngModel">
+                                <option [ngValue]="null" [disabled]="true">--Title--</option>
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Dr">Dr.</option>
+                            </select>
+                            <div *ngIf="f.submitted && title.invalid" class="alert alert-danger">
+                                <div *ngIf="title.errors.required"
+                                    style="color:red; font-size: 15px; margin-bottom: 10px;">*Title is required</div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <input type="text" placeholder="Enter Full Name" name="fullName"
+                                [(ngModel)]="booking.passengersDetails[i].fullName" required #fullName="ngModel">
+                            <div *ngIf="f.submitted && fullName.invalid" class="alert alert-danger">
+                                <div *ngIf="fullName.errors.required"
+                                    style="color:red; font-size: 15px; margin-bottom: 10px;">*Name is required</div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <select name="gender" id="gender" [(ngModel)]="booking.passengersDetails[i].gender" required
+                                #gender="ngModel">
+                                <option [ngValue]="null" [disabled]="true">--Select Gender--</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div *ngIf="f.submitted && gender.invalid" class="alert alert-danger">
+                                <div *ngIf="gender.errors.required"
+                                    style="color:red; font-size: 15px; margin-bottom: 10px;">*Gender is required</div>
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <input type="text" placeholder="Enter Age" name="age"
+                                [(ngModel)]="booking.passengersDetails[i].age" required #age="ngModel">
+                            <div *ngIf="f.submitted && age.invalid" class="alert alert-danger">
+                                <div *ngIf="age.errors.required"
+                                    style="color:red; font-size: 15px; margin-bottom: 10px;">*Age is required</div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <input type="tel" placeholder="Enter Phone Number" name="phoneNumber"
+                                [(ngModel)]="booking.passengersDetails[i].phoneNumber" required #phoneNumber="ngModel">
+                            <div *ngIf="f.submitted && phoneNumber.invalid" class="alert alert-danger">
+                                <div *ngIf="phoneNumber.errors.required"
+                                    style="color:red; font-size: 15px; margin-bottom: 10px;">*Phone number is required
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                </div>
+            </table>
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+
+    <div *ngIf="addPay" class="add">
+        <div class="addC">
+          <label>Payment Details <img src="assets/images/cross.jpg" (click)="hideDiv()" class="close" /></label>
+          <br>
+          <hr class="line">
+          Card Number
+          <input type="text">
+          Expiry Date
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          CV Code<br>
+          <input type="number" placeholder="MM" style="width: 10%;">
+          <input type="number" placeholder="YY" style="width: 10%;">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <input type="number" placeholder="CV" style="width: 10%;">
+          <hr class="line">
+          <button type="submit" class="cancelbtn" (click)="hideDiv()">Cancel</button><button type="submit" (click)="confirmedBooking()" class="createbtn">Confirm Booking</button>
+      </div>
+</div>
