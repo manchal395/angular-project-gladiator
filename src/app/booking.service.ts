@@ -1,3 +1,4 @@
+import { CancelBookingDto } from './booking-id-dto';
 import { Observable } from 'rxjs';
 import { Status } from './status';
 import { HttpClient } from '@angular/common/http';
@@ -20,6 +21,11 @@ export class BookingService {
   viewBooking(userId: UserId): Observable<ViewBookingDto> {
     const url='http://localhost:7001/viewBooking';
     return this.http.post<ViewBookingDto>(url, userId);
+  }
+
+  cancelBooking(bid: CancelBookingDto): Observable<Status> {
+    const url = 'http://localhost:7001/cancelBooking';
+    return this.http.post<Status>(url, bid);
   }
 
 }

@@ -24,6 +24,7 @@
                     <th><label for="Arrive Time"><b>Arrive Time</b></label></th>
                     <th><label for="Source"><b>Source</b></label></th>
                     <th><label for="Destination"><b>Destination</b></label></th>
+                    <th><label for="Action"><b>Action</b></label></th>
                 </tr>
             
             
@@ -37,9 +38,7 @@
                     <td>{{pass.arrive}}</td>
                     <td>{{pass.source}}</td>
                     <td>{{pass.destination}}</td>
-                </tr>
-                
-            
-                    
+                    <td><button type="submit" (click)="canelTicket(pass)">CANCEL</button></td>
+                </tr>   
         </table>
 </div>

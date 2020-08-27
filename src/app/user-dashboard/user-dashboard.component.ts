@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookingService } from '../booking.service';
 import { UserId } from '../user-details';
 import { ViewBookingDto } from '../view-booking-dto';
+import { CancelBookingDto } from '../booking-id-dto';
 
 
 @Component({
@@ -17,6 +18,8 @@ export class UserDashboardComponent implements OnInit {
   constructor(private bookingService:BookingService ) { }
   
   viewBookingDto: ViewBookingDto = new ViewBookingDto;
+  cancelBookDto: CancelBookingDto = new CancelBookingDto;
+
   passenger: ViewBookingDto[] = [];
   res:any;
   ngOnInit(): void {
@@ -37,9 +40,12 @@ export class UserDashboardComponent implements OnInit {
       alert(JSON.stringify(this.viewBookingDto));
     })
   }
-  
-  
-
+  canelTicket(pass){
+    this.cancelBookDto.id=pass.id;
+    this.bookingService.cancelBooking(this.cancelBookDto).subscribe(data => {
+      alert(JSON.stringify(data));
+    })
+  }
 }
 
 
