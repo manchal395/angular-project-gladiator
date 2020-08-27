@@ -71,6 +71,7 @@ export class BookingComponent implements OnInit {
     this.booking.returnFlightScheduleId = parseInt(sessionStorage.getItem('ret_fs_id'));
     this.booking.noOfPassengers = parseInt(sessionStorage.getItem('noOfPassengers'));
     this.booking.fclass = sessionStorage.getItem('fclass');
+    sessionStorage.setItem('passengersDetails', JSON.stringify(this.booking.passengersDetails));
     alert(JSON.stringify(this.booking));
     sessionStorage.setItem('bookingIn', "false");
     this.bookservice.createBooking(this.booking).subscribe(data => {
