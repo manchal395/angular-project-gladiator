@@ -79,7 +79,7 @@ export class SearchResultComponent implements OnInit {
     this.selected = true;
     //alert(JSON.stringify(f));
     this.selects.push(f);
-    alert(JSON.stringify(this.selects));
+    //alert(JSON.stringify(this.selects));
     if(this.searchdto.fclass == "BUSINESS")
       this.totalfare = (this.totalfare + f.business) * parseInt(sessionStorage.getItem('noOfPassengers'));
     else if(this.searchdto.fclass == "ECONOMY")

@@ -15,6 +15,8 @@ export class UserDashboardComponent implements OnInit {
   user = sessionStorage.getItem('name');
   usrId:any;
   totalpass:any;
+  today = new Date().toISOString().substring(0,16);
+
   constructor(private bookingService:BookingService ) { }
   
   viewBookingDto: ViewBookingDto = new ViewBookingDto;
@@ -23,6 +25,8 @@ export class UserDashboardComponent implements OnInit {
   passenger: ViewBookingDto[] = [];
   res:any;
   ngOnInit(): void {
+
+    //alert(this.today);
     this.usrId = sessionStorage.getItem('loggedinId');
     this.user1.userId=this.usrId;
     
@@ -33,19 +37,32 @@ export class UserDashboardComponent implements OnInit {
   
   viewPassenger(){
     this.bookingService.viewBooking(this.user1).subscribe(data => {
-      alert(JSON.stringify(Object.keys(data).length)); 
+      //alert(JSON.stringify(Object.keys(data).length)); 
       this.totalpass=Object.keys(data).length;
       this.viewBookingDto=data;
-      alert(JSON.stringify(data[0]));  
-      alert(JSON.stringify(this.viewBookingDto));
+      //alert(JSON.stringify(data[0]));  
+      //alert(JSON.stringify(this.viewBookingDto));
     })
   }
+
+  isCancelPossible(pass) {
+    
+    if((pass.depart >= this.today) && !(pass.status=="CANCELLED"))
+      return true;
+    else
+      return false;
+  }
+
   canelTicket(pass){
-    this.cancelBookDto.id=pass.id;
+    this.cancelBookDto.id = pass.id;
     this.bookingService.cancelBooking(this.cancelBookDto).subscribe(data => {
       alert(JSON.stringify(data));
     })
+    // alert(pass.depart);
+    // alert(this.today);
+    // alert(JSON.stringify(this.isCancelPossible(pass)));
   }
+
 }
 
 

@@ -1,44 +1,45 @@
 <h3 style="float: right; margin-top: -15px;">Welcome, {{ user }} !</h3>
 
-<div class="container" style="width: 25%; font-size: larger;">
-    <button type="submit" class="viewbtn" (click)="viewPassenger()">View Bookings</button>
+<div class="container" style=" width: 100%; text-align: center; height: max-content; font-size: larger;">
+    <button type="submit" class="viewbtn" (click)="viewPassenger()" style="display: inline-block; width: 30%;">View Bookings</button>
 
-    &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-    <button routerLink="/">Search Flights</button>
+    <button routerLink="/" style="display: inline-block; width: 30%;">Search Flights</button>
 </div>
 
-<div class="card">
+<div class="cardd">
     
         <table *ngFor="let pass of viewBookingDto; let i = index; trackBy: trackByMethod"
         style="margin-bottom: 20px;">
             <b> Booking {{ (i+1) }} Details : </b>
             
-                <tr>
-                    <th><label for="Id"><b>Id</b></label></th>
-                    <th><label for="Booking Date"><b>Booking Date</b></label></th>
-                    <th><label for="Total Passenger"><b>Total Passenger</b></label></th>
-                    <th><label for="Amount"><b>Amount</b></label></th>
-                    <th><label for="Status"><b>Status</b></label></th>
-                    <th><label for="Depart Time"><b>Depart Time</b></label></th>
-                    <th><label for="Arrive Time"><b>Arrive Time</b></label></th>
-                    <th><label for="Source"><b>Source</b></label></th>
-                    <th><label for="Destination"><b>Destination</b></label></th>
-                    <th><label for="Action"><b>Action</b></label></th>
-                </tr>
-            
-            
-                <tr>
-                    <td>{{pass.id}}</td>
-                    <td>{{pass.bookingDateTime}}</td>
-                    <td>{{pass.totalPassengers}}</td>
-                    <td>{{pass.bookingAmount}}</td>
-                    <td>{{pass.status}}</td>
-                    <td>{{pass.depart}}</td>
-                    <td>{{pass.arrive}}</td>
-                    <td>{{pass.source}}</td>
-                    <td>{{pass.destination}}</td>
-                    <td><button type="submit" (click)="canelTicket(pass)">CANCEL</button></td>
-                </tr>   
+                <div class="bookings">
+                    <tr>
+                        <th><label for="Id"><b>Id</b></label></th>
+                        <th><label for="Booking Date"><b>Booking Date</b></label></th>
+                        <th><label for="Passengers"><b>Total Passenger</b></label></th>
+                        <th><label for="Amount"><b>Amount</b></label></th>
+                        <th><label for="Status"><b>Status</b></label></th>
+                        <th><label for="Depart"><b>Depart Time</b></label></th>
+                        <th><label for="Arrive"><b>Arrive Time</b></label></th>
+                        <th><label for="Source"><b>Source</b></label></th>
+                        <th><label for="Destination"><b>Destination</b></label></th>
+                        <th><label for="Action"><b>Action</b></label></th>
+                    </tr>
+                    <tr>
+                        <td>{{pass.id}}</td>
+                        <td>{{pass.bookingDateTime.substring(0,10)}}, {{pass.bookingDateTime.substring(11,16)}}</td>
+                        <td>{{pass.totalPassengers}}</td>
+                        <td>{{pass.bookingAmount}}</td>
+                        <td>{{pass.status}}</td>
+                        <td>{{pass.depart.substring(0,10)}}, {{pass.depart.substring(11,16)}}</td>
+                        <td>{{pass.arrive.substring(0,10)}}, {{pass.arrive.substring(11,16)}}</td>
+                        <td>{{pass.source}}</td>
+                        <td>{{pass.destination}}</td>
+                        <td *ngIf="isCancelPossible(pass)"><button type="submit" (click)="canelTicket(pass)">CANCEL</button></td>
+                        <td *ngIf="!isCancelPossible(pass)">NA</td>
+                    </tr>   
+                </div>
         </table>
 </div>

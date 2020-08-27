@@ -72,7 +72,7 @@ export class SearchComponent implements OnInit {
 
   searchFlights() {
     //alert(this.radiobtn);
-    alert(JSON.stringify(this.searchdto));
+    //alert(JSON.stringify(this.searchdto));
     sessionStorage.setItem('source', this.searchdto.source);
     sessionStorage.setItem('destination', this.searchdto.destination);
     sessionStorage.setItem('depart', this.searchdto.depart);
