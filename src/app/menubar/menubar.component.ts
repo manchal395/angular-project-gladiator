@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class MenubarComponent implements OnInit {
 
   name: string;
-  static loggedin: boolean;
+  static loggedin: boolean = false;
 
   constructor(private router: Router) { 
   }
@@ -24,14 +24,19 @@ export class MenubarComponent implements OnInit {
       MenubarComponent.loggedin= false;
     }
 
-    if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="ADMIN") {
-      sessionStorage.setItem('clicked', "false");
-      this.router.navigate(['admin-dashboard']);
-    }
-    else if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="USER" && sessionStorage.getItem('bookingIn')=="true") {
+    if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true && sessionStorage.getItem('bookingIn')=="true") {
       sessionStorage.setItem('clicked', "false");
       sessionStorage.setItem('bookingIn', "false");
       this.router.navigate(['booking']);
+    }
+    else if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="ADMIN") {
+      sessionStorage.setItem('clicked', "false");
+      this.router.navigate(['admin-dashboard']);
+    }
+    else if(MenubarComponent.loggedin == false && sessionStorage.getItem('bookingIn')=="true") {
+      //sessionStorage.setItem('clicked', "false");
+      //sessionStorage.setItem('bookingIn', "false");
+      this.router.navigate(['login']);
     }
     else if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="USER") {
       sessionStorage.setItem('clicked', "false");
