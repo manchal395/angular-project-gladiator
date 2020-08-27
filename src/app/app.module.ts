@@ -20,6 +20,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { BookingComponent } from './booking/booking.component';
 import { CovidAlertComponent } from './covid-alert/covid-alert.component';
 import { ViewDashboardComponent } from './view-dashboard/view-dashboard.component';
+import { BookingTicketComponent } from './booking-ticket/booking-ticket.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ViewDashboardComponent } from './view-dashboard/view-dashboard.componen
     LogoutComponent,
     BookingComponent,
     CovidAlertComponent,
-    ViewDashboardComponent
+    ViewDashboardComponent,
+    BookingTicketComponent
   ],
   imports: [
     AppRoutingModule,

@@ -30,6 +30,7 @@ export class SearchResultComponent implements OnInit {
   selected: boolean = false;
   found: boolean = false;
 
+  pass: any;
   constructor(private searchservice: SearchFlightsService, private router: Router) { }
 
   ngOnInit(): void {
@@ -37,7 +38,6 @@ export class SearchResultComponent implements OnInit {
     if(sessionStorage.getItem('source') == "null") {
       this.router.navigate(['/']);
     }
-
     this.searchdto.source = sessionStorage.getItem('source');
     this.searchdto.destination = sessionStorage.getItem('destination');
     this.searchdto.depart = sessionStorage.getItem('depart');
@@ -103,7 +103,8 @@ export class SearchResultComponent implements OnInit {
     else
       sessionStorage.setItem('ret_fs_id', "0");
     sessionStorage.setItem('amount', this.totalfare.toString());
-    if(sessionStorage.getItem('loggedinId') == "null") {
+    sessionStorage.setItem('selected-flights', JSON.stringify(this.selects));
+    if(sessionStorage.getItem('loggedinId') == "null" || sessionStorage.getItem('loggedinId')==null) {
       alert("You are not logged in. Login to continue booking...")
       sessionStorage.setItem('bookingIn', "true");
       this.router.navigate(['menubar']);

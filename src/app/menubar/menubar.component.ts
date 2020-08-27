@@ -24,9 +24,9 @@ export class MenubarComponent implements OnInit {
       MenubarComponent.loggedin= false;
     }
 
-    if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true && sessionStorage.getItem('bookingIn')=="true") {
-      sessionStorage.setItem('clicked', "false");
-      sessionStorage.setItem('bookingIn', "false");
+    if(MenubarComponent.loggedin == true && sessionStorage.getItem('bookingIn')=="true") {
+      //sessionStorage.setItem('clicked', "false");
+      //sessionStorage.setItem('bookingIn', "false");
       this.router.navigate(['booking']);
     }
     else if(sessionStorage.getItem('clicked')=="true" && MenubarComponent.loggedin == true  && sessionStorage.getItem('typeOfUser')=="ADMIN") {
