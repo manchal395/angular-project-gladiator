@@ -31,6 +31,8 @@ export class SearchResultComponent implements OnInit {
   found: boolean = false;
 
   pass: any;
+  msg = "Fetching Flights...";
+
   constructor(private searchservice: SearchFlightsService, private router: Router) { }
 
   ngOnInit(): void {
@@ -62,9 +64,11 @@ export class SearchResultComponent implements OnInit {
 
     //alert(JSON.stringify(this.searchdto));
     this.searchservice.searchFlights(this.searchdto).subscribe(data => {
-      alert(JSON.stringify(data));
-      if(Object.keys(data).length == 0)
-        this.router.navigate(['search']);
+      //alert(JSON.stringify(data));
+      if((Object.keys(data).length == 0) || (data == null)) {
+        this.msg = "Sorry, No Records Found for given Search Details!"
+        //this.router.navigate(['search']);
+      }
       else
         this.found = true;
       this.fetchedflights = data;

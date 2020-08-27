@@ -134,3 +134,9 @@ body {
   .container select:focus {
     border: 2px solid red;
   }
+
+  .displayMsg {
+      color: green;
+      font-size: medium;
+      text-align: center;
+  }

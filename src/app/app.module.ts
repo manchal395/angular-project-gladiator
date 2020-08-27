@@ -23,6 +23,8 @@ import { ViewDashboardComponent } from './view-dashboard/view-dashboard.componen
 import { BookingTicketComponent } from './booking-ticket/booking-ticket.component';
 import { CovidGuidelinesComponent } from './covid-guidelines/covid-guidelines.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { MessageComponent } from './message/message.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ViewDashboardComponent,
     BookingTicketComponent,
     CovidGuidelinesComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    MessageComponent,
+    ContactUsComponent
   ],
   imports: [
     AppRoutingModule,

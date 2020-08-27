@@ -1,9 +1,9 @@
 <div class="topmenu">
     <ul>
         <!-- routerLink vale : component's selector name -->
-        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/">Search Flights</a></li>
         <li><a routerLink="/about-us">About Us</a></li>
-        <li><a routerLink="/booking-ticket">Contact Us</a></li>
+        <li><a routerLink="/contact-us">Contact Us</a></li>
         <li><a routerLink="/view-dashboard">View Dashboard</a></li>
         <li *ngIf="!loggedIn()" class="login"><a routerLink="/login" >Login/SignUp</a></li>
         <li *ngIf="loggedIn()" class="login"><a routerLink="/logout" >LogOut</a></li>

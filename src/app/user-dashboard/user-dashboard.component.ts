@@ -59,6 +59,7 @@ export class UserDashboardComponent implements OnInit {
     this.cancelBookDto.id = pass.id;
     this.bookingService.cancelBooking(this.cancelBookDto).subscribe(data => {
       alert(JSON.stringify(data));
+      window.location.reload();
     })
     // alert(pass.depart);
     // alert(this.today);

@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   loginUser() {
-    alert(JSON.stringify(this.login));
+    //alert(JSON.stringify(this.login));
     this.loginService.login(this.login).subscribe(data => {
-      alert(JSON.stringify(data));
+      //alert(JSON.stringify(data));
       if((data.status == 'SUCCESS')) {
         let loggedinId = data.userId;
         //alert(data.userId);
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['menubar']);
       }
       else {
-        this.message = data.message;
+        this.message = "Incorrect login credentials";
       }
     })
   }

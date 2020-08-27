@@ -72,17 +72,19 @@ export class BookingComponent implements OnInit {
     this.booking.noOfPassengers = parseInt(sessionStorage.getItem('noOfPassengers'));
     this.booking.fclass = sessionStorage.getItem('fclass');
     sessionStorage.setItem('passengersDetails', JSON.stringify(this.booking.passengersDetails));
-    alert(JSON.stringify(this.booking));
+    //alert(JSON.stringify(this.booking));
     sessionStorage.setItem('bookingIn', "false");
     this.bookservice.createBooking(this.booking).subscribe(data => {
-      alert(JSON.stringify(data));
+      //alert(JSON.stringify(data));
       if(data.status == 'SUCCESS') {
-        alert(data.message);
-        this.router.navigate(['user-dashboard']);
+        //alert(data.message);
+        sessionStorage.setItem('msg', "Congratulations! Booking Successful. Go to Dashboard to View Your Booking!")
+        this.router.navigate(['message']);
       }
       else {
-        alert(data.message);
-        this.router.navigate(['search']);
+        //alert(data.message);
+        sessionStorage.setItem('msg', "Sorry! Your booking has been Unsucessful. Try Again.")
+        this.router.navigate(['message']);
       }
     })
   }

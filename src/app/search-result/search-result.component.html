@@ -1,5 +1,5 @@
 <div *ngIf="!found" class="search-details">
-    <h2>Fetching Flights Data ...</h2>
+    <h2>{{ msg }}</h2>
 </div>
 <div *ngIf="found">
     <div *ngFor="let s of searchDetails" style="margin-bottom: 30px;">

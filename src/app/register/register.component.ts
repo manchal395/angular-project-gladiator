@@ -19,8 +19,8 @@ export class RegisterComponent implements OnInit {
       //alert(JSON.stringify(data));
       if(data.status == 'SUCCESS') {
         //this.router.navigate(['thankyou'])
-        alert("registration successfull");
-
+        sessionStorage.setItem('msg', "Registration Successful! Login to continue.");
+        this.router.navigate(['message']);
       }
       else {
         //missing code right now

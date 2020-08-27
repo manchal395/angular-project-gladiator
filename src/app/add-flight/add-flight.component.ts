@@ -14,6 +14,7 @@ export class AddFlightComponent implements OnInit {
 
   public selected: boolean = true;
   public today = new Date();
+  msg: any;
   //to get date in desired format so that depart and arrival datetime could be set to current datetime
   //new Date() saves datetime in format: Mon Aug 24 2020 03:37:18 GMT+0530 (Indian Standard Time)
   //toISOString() returns datetime in  : 2020-08-23T22:07:18:957Z
@@ -38,7 +39,7 @@ export class AddFlightComponent implements OnInit {
   }
 
   onCity(e) {
-    alert(e.target.value);
+    //alert(e.target.value);
   }
 
   addFlight() {

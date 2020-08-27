@@ -1,3 +1,5 @@
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MessageComponent } from './message/message.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CovidGuidelinesComponent } from './covid-guidelines/covid-guidelines.component';
 import { BookingTicketComponent } from './booking-ticket/booking-ticket.component';
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'about-us', component: AboutUsComponent},
+  { path: 'message', component: MessageComponent},
+  { path: 'contact-us', component: ContactUsComponent},
   { path: 'view-dashboard', component: ViewDashboardComponent},
   { path: 'search-result', component: SearchResultComponent },
   { path: 'booking-ticket', component: BookingTicketComponent },
