@@ -31,7 +31,6 @@ export class UserDashboardComponent implements OnInit {
     this.user1.userId=this.usrId;
 
     this.today.setHours(this.today.getHours() - 3);
-    this.today.toISOString().substring(0,16);
     
   }
   trackByMethod(index:any, el:any) {
@@ -50,7 +49,7 @@ export class UserDashboardComponent implements OnInit {
 
   isCancelPossible(pass) {
     
-    if((pass.depart >= this.today) && !(pass.status=="CANCELLED"))
+    if((pass.depart >= this.today.toISOString().substring(0,16)) && !(pass.status=="CANCELLED"))
       return true;
     else
       return false;
