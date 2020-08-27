@@ -1,5 +1,5 @@
 <div class="card">
-    <form (ngSubmit)="displayFlights()">
+    <form (ngSubmit)="displayFlights()" #f="ngForm" name="form">
         <table *ngFor="let pass of passNo(passengers); let i = index; trackBy: trackByMethod"
             style="margin-bottom: 20px;">
             <b> Passenger {{ (i+1) }} Details : </b>
@@ -13,37 +13,53 @@
                 </tr>
                 <tr>
                     <td>
-                        <select name="title" id="title" [(ngModel)]="booking.passengersDetails[i].title">
+                        <select name="title" id="title" [(ngModel)]="booking.passengersDetails[i].title" required #title="ngModel">
                             <option [ngValue]="null" [disabled]="true">--Title--</option>
                             <option value="Mr">Mr</option>
                             <option value="Mrs">Mrs</option>
                             <option value="Ms">Ms</option>
                             <option value="Dr">Dr.</option>
                         </select>
+                        <div *ngIf="f.submitted && title.invalid" class="alert alert-danger">
+                            <div *ngIf="title.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Title is required</div>
+                        </div>
                     </td>
 
                     <td>
                         <input type="text" placeholder="Enter Full Name" name="fullName"
-                            [(ngModel)]="booking.passengersDetails[i].fullName">
+                            [(ngModel)]="booking.passengersDetails[i].fullName" required #fullName="ngModel">
+                        <div *ngIf="f.submitted && fullName.invalid" class="alert alert-danger" >
+                            <div *ngIf="fullName.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Name is required</div>
+                        </div>
                     </td>
 
                     <td>
-                        <select name="gender" id="gender" [(ngModel)]="booking.passengersDetails[i].gender">
+                        <select name="gender" id="gender" [(ngModel)]="booking.passengersDetails[i].gender" required #gender="ngModel">
                             <option [ngValue]="null" [disabled]="true">--Select Gender--</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Other">Other</option>
                         </select>
+                        <div *ngIf="f.submitted && gender.invalid" class="alert alert-danger" >
+                            <div *ngIf="gender.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Gender is required</div>
+                        </div>
+
                     </td>
 
                     <td>
                         <input type="text" placeholder="Enter Age" name="age"
-                            [(ngModel)]="booking.passengersDetails[i].age">
+                            [(ngModel)]="booking.passengersDetails[i].age" required #age="ngModel">
+                        <div *ngIf="f.submitted && age.invalid" class="alert alert-danger" >
+                            <div *ngIf="age.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Age is required</div>
+                        </div>
                     </td>
 
                     <td>
                         <input type="tel" placeholder="Enter Phone Number" name="phoneNumber"
-                            [(ngModel)]="booking.passengersDetails[i].phoneNumber">
+                            [(ngModel)]="booking.passengersDetails[i].phoneNumber" required #phoneNumber="ngModel">
+                        <div *ngIf="f.submitted && phoneNumber.invalid" class="alert alert-danger" >
+                            <div *ngIf="phoneNumber.errors.required" style="color:red; font-size: 15px; margin-bottom: 10px;">*Phone number is required</div>
+                        </div>
                     </td>
 
                 </tr>
