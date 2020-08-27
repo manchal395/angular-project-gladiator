@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   public today = new Date();
   public departDate = this.today.toLocaleDateString('fr-CA');
   public returnDate = this.today.toLocaleDateString('fr-CA');
-  public resetDate = "";
+  public resetDate = this.today.toLocaleDateString('fr-CA');
   public oneway: boolean = true;
   public dateselected = new Date();
   public radiobtn = "oneway";
@@ -62,7 +62,7 @@ export class SearchComponent implements OnInit {
   }
 
   onReturnDateSelect(e) {
-    this.resetDate = e.target.value;
+    //this.resetDate = e.target.value;
   }
 
   public selectedval = 1;
@@ -82,7 +82,7 @@ export class SearchComponent implements OnInit {
       sessionStorage.setItem('arrive', this.searchdto.arrive);
     sessionStorage.setItem('noOfPassengers', this.searchdto.noOfPassengers.toString());
     sessionStorage.setItem('fclass', this.searchdto.fclass.toLocaleUpperCase());
-    this.router.navigate(['search-result']);
+    //this.router.navigate(['search-result']);
   }
 
 

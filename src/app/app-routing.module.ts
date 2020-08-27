@@ -1,3 +1,5 @@
+import { AboutUsComponent } from './about-us/about-us.component';
+import { CovidGuidelinesComponent } from './covid-guidelines/covid-guidelines.component';
 import { BookingTicketComponent } from './booking-ticket/booking-ticket.component';
 import { ViewDashboardComponent } from './view-dashboard/view-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -23,9 +25,11 @@ const routes: Routes = [
   { path: 'booking', component: BookingComponent},
   { path: 'logout', component: LogoutComponent},
   { path: 'register', component: RegisterComponent},
+  { path: 'about-us', component: AboutUsComponent},
   { path: 'view-dashboard', component: ViewDashboardComponent},
   { path: 'search-result', component: SearchResultComponent },
   { path: 'booking-ticket', component: BookingTicketComponent },
+  { path: 'covid-guidelines', component: CovidGuidelinesComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent,
     children: [
       { path: 'add-flight', component: AddFlightComponent },
