@@ -1,0 +1,65 @@
+.card {
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+}
+.card form{
+    width: 80%;
+    margin: auto;
+}
+.card button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 50%;
+    border: 2px solid;
+    font-size: medium;
+}
+
+.card button:focus,
+    button:hover {
+        font-size: larger;
+        cursor: pointer;
+    }
+
+.bookings{
+    background: silver;
+    width: 100%;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    height: max-content;
+    /* border: 1px solid grey; */
+}
+.bookings input, select{
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+.bookings input:hover {
+    border: 1px solid darkblue;
+}
+
+.bookings input:focus {
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 6px red;
+}
+
+.bookings select:hover {
+    border: 1px solid darkblue;
+}
+
+.bookings select:focus{
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 6px red;
+}
+
