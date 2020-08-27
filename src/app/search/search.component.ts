@@ -82,7 +82,7 @@ export class SearchComponent implements OnInit {
       sessionStorage.setItem('arrive', this.searchdto.arrive);
     sessionStorage.setItem('noOfPassengers', this.searchdto.noOfPassengers.toString());
     sessionStorage.setItem('fclass', this.searchdto.fclass.toLocaleUpperCase());
-    //this.router.navigate(['search-result']);
+    this.router.navigate(['search-result']);
   }
 
 

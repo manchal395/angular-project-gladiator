@@ -15,7 +15,7 @@ export class UserDashboardComponent implements OnInit {
   user = sessionStorage.getItem('name');
   usrId:any;
   totalpass:any;
-  today = new Date().toISOString().substring(0,16);
+  today = new Date();
 
   constructor(private bookingService:BookingService ) { }
   
@@ -29,6 +29,9 @@ export class UserDashboardComponent implements OnInit {
     //alert(this.today);
     this.usrId = sessionStorage.getItem('loggedinId');
     this.user1.userId=this.usrId;
+
+    this.today.setHours(this.today.getHours() - 3);
+    this.today.toISOString().substring(0,16);
     
   }
   trackByMethod(index:any, el:any) {
