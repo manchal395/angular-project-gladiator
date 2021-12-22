@@ -5,7 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## PROJECT - AIRLINES	(a SpringBoot-Angular Application) <br/> 
-  by Anchal Maheshwari (https://github.com/manchal395), Gautam, Gurdeep, Animesh
+  Developed by Anchal Maheshwari (https://github.com/manchal395), Gautam, Gurdeep, Animesh <br/>
+  Mentored by Mr. Majrul Ansari (https://www.linkedin.com/in/majrul/)
 > Repository for Part A:	project-gladiator (https://github.com/manchal395/project-gladiator) <br/>
 > Repository for Part B:	angular-project-gladiator (https://github.com/manchal395/angular-project-gladiator)
 
